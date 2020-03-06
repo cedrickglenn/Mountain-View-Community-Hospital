@@ -1,0 +1,10 @@
+D:\Software Design\Mountain View Community Hospital\Datalayer\bin\Debug\netcoreapp3.1\Datalayer.deps.json
+D:\Software Design\Mountain View Community Hospital\Datalayer\bin\Debug\netcoreapp3.1\Datalayer.dll
+D:\Software Design\Mountain View Community Hospital\Datalayer\obj\Debug\netcoreapp3.1\Datalayer.csprojAssemblyReference.cache
+D:\Software Design\Mountain View Community Hospital\Datalayer\obj\Debug\netcoreapp3.1\Datalayer.AssemblyInfoInputs.cache
+D:\Software Design\Mountain View Community Hospital\Datalayer\obj\Debug\netcoreapp3.1\Datalayer.AssemblyInfo.cs
+D:\Software Design\Mountain View Community Hospital\Datalayer\bin\Debug\netcoreapp3.1\Datalayer.runtimeconfig.json
+D:\Software Design\Mountain View Community Hospital\Datalayer\bin\Debug\netcoreapp3.1\Datalayer.runtimeconfig.dev.json
+D:\Software Design\Mountain View Community Hospital\Datalayer\bin\Debug\netcoreapp3.1\Datalayer.pdb
+D:\Software Design\Mountain View Community Hospital\Datalayer\obj\Debug\netcoreapp3.1\Datalayer.dll
+D:\Software Design\Mountain View Community Hospital\Datalayer\obj\Debug\netcoreapp3.1\Datalayer.pdb

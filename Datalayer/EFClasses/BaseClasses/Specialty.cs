@@ -7,8 +7,11 @@ namespace Datalayer.EFClasses.BaseClasses
     {
         public string SpecialtyId { get; set; }
         public string Name { get; set; }
-        public ICollection<PhysicianSpecialty> PhysicianSpecialties { get; set; }
-        public ICollection<EmployeeSpecialty> EmployeeSpecialties { get; set; }
-        public ICollection<VolunteerSpecialty> VolunteerSpecialties { get; set; }
+        public string Description { get; set; }
+
+
+        public ICollection<PhysicianSpecialty>? PhysicianSpecialties { get; set; }
+        public ICollection<EmployeeSpecialty>? EmployeeSpecialties { get; set; }
+        public ICollection<VolunteerSpecialty>? VolunteerSpecialties { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.HasKey(c => c.SpecialtyId);
             builder.Property(c => c.SpecialtyId)
                 .HasValueGenerator(typeof(SpecialtyIdGenerator));
+      
         }
 
         private class SpecialtyIdGenerator : ValueGenerator

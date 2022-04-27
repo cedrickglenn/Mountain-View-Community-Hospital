@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="MVCHWpf.Views.NurseViews.NurseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVCHWpf.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+             d:DesignHeight="450" d:DesignWidth="800" Margin="-5">
+    <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" 
+                   Background="#009ABB">
+            <TextBox
+                        DockPanel.Dock="Left"
+                        BorderBrush="Black"
+                        BorderThickness="0.5"
+                        Margin="30,10,10,10"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Height="40"
+                        Width="350"
+                        materialDesign:HintAssist.Hint=" Search here..."
+                        Background="#009ABB"
+                        Foreground="#09425A"
+                        TextWrapping="Wrap"
+                        PreviewKeyDown="SearchNurseBox_OnPreviewKeyDown"
+                        PreviewTextInput="SearchNurseBox_OnPreviewTextInput"
+                        x:Name="SearchNurseBox"/>
+            <Button
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Foreground="#09425A"
+                        BorderThickness="0.5"
+                        BorderBrush="Black"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10 10 30 10"
+                        Width = "150"
+                        Height="40"
+                        DockPanel.Dock="Right"
+                        ToolTip="MaterialDesignFlatButton"
+                        x:Name ="AddNurseButton"
+                        Click="AddNurseButton_Onclick">
+                <StackPanel Orientation="Horizontal">
+                    <ContentControl 
+                        Content="{materialDesign:PackIcon PersonAdd, Size=24}"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                    />
+                    <TextBlock Text=" Add Nurse" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+        </DockPanel>
+         <Syncfusion:SfDataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Path = NurseList}"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionUnit="Row"
+                  MouseDoubleClick="NurseGrid_OnMouseDoubleClick"
+                  x:Name="NurseGrid"
+                  FontSize="12"
+                  RowHeight="40"
+                  Syncfusion:SkinManager.ActiveColorScheme="Black"
+                  Background="WhiteSmoke"
+                  CurrentCellBorderBrush="Transparent"
+                  SelectionForegroundBrush="Black"
+                  Foreground="Black"
+                  AutoGenerateColumns="False">
+            <Syncfusion:SfDataGrid.Columns>
+                <Syncfusion:GridTextColumn HeaderText="Id"  MappingName="NurseId"/>
+                <Syncfusion:GridTextColumn HeaderText="Degree"  MappingName="Degree"/>
+                <Syncfusion:GridTextColumn HeaderText="Name"    MappingName="FullName"/>
+                <Syncfusion:GridDateTimeColumn Pattern="ShortDate" DisableDateSelection="True" HeaderText="Birth Date"  MappingName="BirthDate"/>
+                <Syncfusion:GridTextColumn HeaderText="Address" TextWrapping="Wrap" MappingName="Address"/>
+                <Syncfusion:GridTextColumn HeaderText="City"    MappingName="City"/>
+                <Syncfusion:GridTextColumn HeaderText="State"   MappingName="State"/>
+                <Syncfusion:GridTextColumn HeaderText="Zip"     MappingName="Zip"/>
+                <Syncfusion:GridTextColumn HeaderText="Phone #" MappingName="PhoneNumber"/>
+                <Syncfusion:GridTextColumn HeaderText="Email"   MappingName="Email"/>
+                <Syncfusion:GridTextColumn HeaderText="License" MappingName="License"/>
+                <Syncfusion:GridDateTimeColumn Pattern="ShortDate" DisableDateSelection="True" HeaderText="Date Hired"  MappingName="DateHired"/>
+            </Syncfusion:SfDataGrid.Columns>
+        </Syncfusion:SfDataGrid>
+    </Grid>
+</UserControl>

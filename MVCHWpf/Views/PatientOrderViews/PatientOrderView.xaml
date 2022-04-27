@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="MVCHWpf.Views.PatientOrderViews.PatientOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="600">
+    <Grid Margin="5"
+          Background="WhiteSmoke">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                 <TextBlock Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Text="Order Information"
+                           FontStyle="Normal"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5,5,5,10"/>
+                 <Button
+                     Style="{StaticResource MaterialDesignRaisedLightButton}"
+                     Grid.Row="1"
+                     Grid.Column="2"
+                     Background="#009ABB"
+                     Foreground="WhiteSmoke"
+                     BorderThickness="0"
+                     BorderBrush="WhiteSmoke"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Stretch"
+                     Margin="15,-5,15,-5"
+                     Visibility="Visible"
+                     x:Name ="AddPatientOrderButton"
+                     Click="AddPatientOrderButton_OnClick">
+                     <StackPanel Orientation="Horizontal"
+                                 Margin="-5">
+                         <ContentControl 
+                             Content="{materialDesign:PackIcon add,Size=28}"
+                             VerticalAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             HorizontalAlignment="Left"
+                             HorizontalContentAlignment="Left"/>
+                         <TextBlock Text="  Add" 
+                                    FontSize="14"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"/>
+                     </StackPanel>
+                 </Button>
+
+
+        <DataGrid Grid.Row="1" 
+                           Grid.ColumnSpan="2"
+                           Grid.RowSpan="2"
+                           ItemsSource="{Binding Path = PatientOrderList}"
+                           SelectedItem="{Binding Path = SelectedPatientOrder}"
+                           IsReadOnly="True"
+                           SelectionMode="Single"
+                           SelectionUnit="FullRow"
+                           Margin="10,5"
+                           MouseDoubleClick="PatientOrderGrid_OnMouseDoubleClickGrid_OnMouseDoubleClick"
+                           x:Name="PatientOrderGrid"
+                           FontSize="12"
+                           AutoGenerateColumns="False">
+                     <DataGrid.Columns>
+                         <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding PatientOrderId}"/>
+                         <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                         <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                         <DataGridTextColumn Header="Total Cost" Width="Auto"  Binding="{Binding TotalCost}"/>
+                     </DataGrid.Columns>
+                 </DataGrid>
+            </Grid>
+</UserControl>

@@ -8,6 +8,6 @@ namespace Datalayer.EFClasses.BaseClasses
         public string VisitId { get; set; }
         public DateTime DateTime { get; set; }
         public Outpatient OutpatientLink { get; set; }
-        public string? OutpatientId { get; set; }
+        public string OutpatientId { get; set; }
     }
 }

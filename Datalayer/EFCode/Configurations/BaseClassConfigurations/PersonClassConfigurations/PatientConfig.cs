@@ -14,33 +14,15 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations.PersonClassCon
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
             //builder.ToTable("Patient");
-           
-            builder.Property(c => c.PatientId)
-                .HasValueGenerator(typeof(PatientIdGenerator));
-            builder.HasIndex(c => c.PatientId).IsUnique();
+
 
             builder.HasOne(c => c.ContactPersonLink)
-                .WithMany(c => c.Patients)
+                .WithMany(c => c.PatientContacts)
                 .HasForeignKey(c => c.ContactPersonId);
-        }
-
-        private class PatientIdGenerator : ValueGenerator
-        {
-            public override bool GeneratesTemporaryValues => false;
-
-            protected override object NextValue(EntityEntry entry)
-            {
-                using var context = new MVCHContext();
-
-                var stringId = new StringBuilder();
-
-                var idNumSequence = (context.Patients.Count() + 1).ToString();
-
-                stringId.Append("PNT-");
-                stringId.Append($"{idNumSequence.PadLeft(6, '0')}");
-
-                return stringId.ToString();
-            }
+            builder.HasOne(c => c.SubscriberPersonLink)
+                .WithMany(c => c.Dependents)
+                .HasForeignKey(c => c.SubscriberPersonId);
         }
     }
-}
+    }
+

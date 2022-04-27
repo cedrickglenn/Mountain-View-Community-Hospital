@@ -11,6 +11,6 @@ namespace Datalayer.EFClasses.BaseClasses
         public decimal UnitCost { get; set; }
 
         public ICollection<VendorSupply> VendorSupplies { get; set; }
-        public ICollection<OrderItem> OrderItems { get; set; }  
+        public ICollection<OrderItem>? OrderItems { get; set; }  
     }
 }

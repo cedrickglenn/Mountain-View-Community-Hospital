@@ -1,0 +1,93 @@
+﻿<UserControl xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="MVCHWpf.Views.PatientViews.PatientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVCHWpf.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" 
+                   Background="#009ABB">
+            <TextBox
+                        DockPanel.Dock="Left"
+                        BorderBrush="Black"
+                        BorderThickness="0.5"
+                        Margin="30,10,10,10"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Height="40"
+                        Width="350"
+                        Background="#009ABB"
+                        Foreground="#09425A"
+                        TextWrapping="Wrap"
+                        materialDesign:HintAssist.Hint=" Search here..."
+                        x:Name="SearchPatientBox"
+                        PreviewTextInput="SearchPatientBox_OnPreviewTextInput"
+                        PreviewKeyDown="SearchPatientBox_OnPreviewKeyDown"/>
+            <Button
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Foreground="#09425A"
+                        BorderThickness="0.5"
+                        BorderBrush="Black"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Margin="10 10 30 10"
+                        Width = "150"
+                        Height="40"
+                        DockPanel.Dock="Right"
+                        ToolTip="MaterialDesignFlatButton"
+                        x:Name ="AddPatientButton"
+                        Click="AddPatientButton_Onclick">
+                <StackPanel Orientation="Horizontal">
+                    <ContentControl 
+                        Content="{materialDesign:PackIcon PersonAdd, Size=30}"
+                        VerticalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                    />
+                    <TextBlock Text=" Add Patient" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+        </DockPanel>
+        <syncfusion:SfDataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Path = PatientList}"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionUnit="Row"
+                  MouseDoubleClick="PatientGrid_OnMouseDoubleClick"
+                  x:Name="PatientGrid"
+                  FontSize="12"
+                  RowHeight="40"
+                  syncfusion:SkinManager.ActiveColorScheme="Black"
+                  Background="WhiteSmoke"
+                  CurrentCellBorderBrush="Transparent"
+                  SelectionForegroundBrush="Black"
+                  Foreground="Black"
+                  AutoGenerateColumns="False">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn HeaderText="Id"   MappingName="PatientModel.PersonId"/>
+                <syncfusion:GridTextColumn HeaderText="Type" MappingName="PatientModel.Discriminator"/>
+                <syncfusion:GridTextColumn HeaderText="Name" MappingName="PatientModel.FullName" />
+                <syncfusion:GridDateTimeColumn  Pattern="ShortDate"  DisableDateSelection="True" HeaderText="Birth Date" MappingName="PatientModel.BirthDate"/>
+                <syncfusion:GridTextColumn HeaderText="Address" TextWrapping="Wrap"  MappingName="PatientModel.Address"/>
+                <syncfusion:GridTextColumn HeaderText="City" MappingName="PatientModel.City"/>
+                <syncfusion:GridTextColumn HeaderText="State" MappingName="PatientModel.State"/>
+                <syncfusion:GridTextColumn HeaderText="Zip" MappingName="PatientModel.Zip"/>
+                <syncfusion:GridTextColumn HeaderText="Phone #" MappingName="PatientModel.PhoneNumber"/>
+                <syncfusion:GridTextColumn HeaderText="Email" TextWrapping="Wrap" MappingName="PatientModel.Email"/>
+                    <syncfusion:GridTextColumn HeaderText="Contact" MappingName="PatientModel.ContactPersonLink.FullName"/>
+                <syncfusion:GridTextColumn HeaderText="Relationship" MappingName="PatientModel.ContactRelationship"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,321 @@
+﻿<UserControl x:Class="MVCHWpf.Views.VitalRecordViews.VitalRecordView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="640" d:DesignWidth="600">
+    <Grid Background="WhiteSmoke">
+        <ScrollViewer>
+            <Grid Margin="5">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.2*"/>
+        </Grid.ColumnDefinitions>
+         <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="Height Records"
+                   FontStyle="Normal"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   FontWeight="Bold"
+                   FontSize="18"
+                   Margin="5,5,5,10"/>
+         <TextBlock Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Text="Weight Records"
+                    FontStyle="Normal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    Margin="5,30,5,10"/>
+         <TextBlock Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Text="Blood Pressure Records"
+                    FontStyle="Normal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    Margin="5,30,5,10"/>
+         <TextBlock Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    Text="Pulse Records"
+                    FontStyle="Normal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    Margin="5,30,5,10"/>
+         <TextBlock Grid.Row="8"
+                    Grid.ColumnSpan="2"
+                    Text="Temperature Records"
+                    FontStyle="Normal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    Margin="5,30,5,10"/>
+         <Button
+             Style="{StaticResource MaterialDesignRaisedLightButton}"
+             Grid.Row="0"
+             Grid.Column="2"
+
+             Background="#009ABB"
+             Foreground="WhiteSmoke"
+             BorderThickness="0"
+             BorderBrush="WhiteSmoke"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Stretch"
+             Margin="15,5,15,10"
+             Visibility="Visible"
+             x:Name ="AddHeightButton"
+             Click="AddHeightButton_OnClick">
+             <StackPanel Orientation="Horizontal"
+                         Margin="-5">
+                 <ContentControl 
+                     Content="{materialDesign:PackIcon Ruler,Size=28}"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"/>
+                 <TextBlock Text="  Add" 
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+             </StackPanel>
+         </Button>
+         <Button
+             Style="{StaticResource MaterialDesignRaisedLightButton}"
+             Grid.Row="2"
+             Grid.Column="2"
+             Background="#009ABB"
+             Foreground="WhiteSmoke"
+             BorderThickness="0"
+             BorderBrush="WhiteSmoke"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Stretch"
+             Margin="15,30,15,10"
+             Visibility="Visible"
+             x:Name ="AddWeightButton"
+             Click="AddWeightButton_OnClick">
+             <StackPanel Orientation="Horizontal"
+                         Margin="-5">
+                 <ContentControl 
+                     Content="{materialDesign:PackIcon Weights,Size=28}"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"/>
+                 <TextBlock Text="  Add" 
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+             </StackPanel>
+         </Button>
+         <Button
+             Style="{StaticResource MaterialDesignRaisedLightButton}"
+             Grid.Row="4"
+             Grid.Column="2"
+             Background="#009ABB"
+             Foreground="WhiteSmoke"
+             BorderThickness="0"
+             BorderBrush="WhiteSmoke"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Stretch"
+             Margin="15,30,15,10"
+             Visibility="Visible"
+             x:Name ="AddBloodPressureButton"
+             Click="AddBloodPressureButton_OnClick">
+             <StackPanel Orientation="Horizontal"
+                         Margin="-5">
+                 <ContentControl 
+                     Content="{materialDesign:PackIcon Blood,Size=28}"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"/>
+                 <TextBlock Text="  Add" 
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+             </StackPanel>
+         </Button>
+         <Button
+             Style="{StaticResource MaterialDesignRaisedLightButton}"
+             Grid.Row="6"
+             Grid.Column="2"
+             Background="#009ABB"
+             Foreground="WhiteSmoke"
+             BorderThickness="0"
+             BorderBrush="WhiteSmoke"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Stretch"
+             Margin="15,30,15,10"
+             Visibility="Visible"
+             x:Name ="AddPulseButton"
+             Click="AddPulseButton_OnClick">
+             <StackPanel Orientation="Horizontal"
+                         Margin="-5">
+                 <ContentControl 
+                     Content="{materialDesign:PackIcon ClipboardPulse,Size=28}"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"/>
+                 <TextBlock Text="  Add" 
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+             </StackPanel>
+         </Button>
+         <Button
+                      Style="{StaticResource MaterialDesignRaisedLightButton}"
+                      Grid.Row="8"
+                      Grid.Column="2"
+                      Background="#009ABB"
+                      Foreground="WhiteSmoke"
+                      BorderThickness="0"
+                      BorderBrush="WhiteSmoke"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Stretch"
+                      Margin="15,30,15,10"
+                      Visibility="Visible"
+                      x:Name ="AddTemperatureButton"
+                      Click="AddTemperatureButton_OnClick">
+             <StackPanel Orientation="Horizontal"
+                         Margin="-5">
+                 <ContentControl 
+                     Content="{materialDesign:PackIcon ThermometerAdd,Size=28}"
+                     VerticalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"/>
+                 <TextBlock Text="  Add" 
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"/>
+             </StackPanel>
+         </Button>
+         <DataGrid Grid.Row="1" 
+                   Grid.ColumnSpan="3"
+                   ItemsSource="{Binding Path = HeightList}"
+                   SelectedItem="{Binding Path = SelectedHeight}"
+                   IsReadOnly="True"
+                   SelectionMode="Single"
+                   SelectionUnit="FullRow"
+                   Margin="10,5"
+                   MouseDoubleClick="HeightGrid_OnMouseDoubleClick"
+                   x:Name="HeightGrid"
+                   FontSize="12"
+                   AutoGenerateColumns="False">
+             <DataGrid.Columns>
+                 <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding VitalRecordId}"/>
+                 <DataGridTextColumn Header="Height" Width="Auto"  Binding="{Binding Value}"/>
+                 <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                 <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                 <DataGridTextColumn Header="Nurse" Width="Auto" Binding="{Binding NurseName}"/>
+             </DataGrid.Columns>
+         </DataGrid>
+         <DataGrid Grid.Row="3" 
+                   Grid.ColumnSpan="3"
+                   ItemsSource="{Binding Path = WeightList}"
+                   SelectedItem="{Binding Path = SelectedWeight}"
+                   IsReadOnly="True"
+                   SelectionMode="Single"
+                   SelectionUnit="FullRow"
+                   Margin="10,5"
+                   MouseDoubleClick="WeightGrid_OnMouseDoubleClick"
+                   x:Name="WeightGrid"
+                   FontSize="12"
+                   AutoGenerateColumns="False">
+             <DataGrid.Columns>
+                 <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding VitalRecordId}"/>
+                 <DataGridTextColumn Header="Weight" Width="Auto"  Binding="{Binding Value}"/>
+                 <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                 <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                 <DataGridTextColumn Header="Nurse" Width="Auto" Binding="{Binding NurseName}"/>
+             </DataGrid.Columns>
+         </DataGrid>
+         <DataGrid Grid.Row="5" 
+                   Grid.ColumnSpan="3"
+                   ItemsSource="{Binding Path = BloodPressureList}"
+                   SelectedItem="{Binding Path = SelectedBloodPressure}"
+                   IsReadOnly="True"
+                   SelectionMode="Single"
+                   SelectionUnit="FullRow"
+                   Margin="10,5"
+                   MouseDoubleClick="BpGrid_OnMouseDoubleClick"
+                   x:Name="BloodPressureGrid"
+                   FontSize="12"
+                   AutoGenerateColumns="False">
+             <DataGrid.Columns>
+                 <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding VitalRecordId}"/>
+                 <DataGridTextColumn Header="Blood Pressure" Width="Auto"  Binding="{Binding Value}"/>
+                 <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                 <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                 <DataGridTextColumn Header="Nurse" Width="Auto" Binding="{Binding NurseName}"/>
+             </DataGrid.Columns>
+         </DataGrid>
+         <DataGrid Grid.Row="7" 
+                   Grid.ColumnSpan="3"
+                   ItemsSource="{Binding Path = PulseList}"
+                   SelectedItem="{Binding Path = SelectedPulse}"
+                   IsReadOnly="True"
+                   SelectionMode="Single"
+                   SelectionUnit="FullRow"
+                   Margin="10,5"
+                   MouseDoubleClick="PulseGrid_OnMouseDoubleClickGrid_OnMouseDoubleClick"
+                   x:Name="PulseGrid"
+                   FontSize="12"
+                   AutoGenerateColumns="False">
+             <DataGrid.Columns>
+                 <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding VitalRecordId}"/>
+                 <DataGridTextColumn Header="Pulse" Width="Auto"  Binding="{Binding Value}"/>
+                 <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                 <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                 <DataGridTextColumn Header="Nurse" Width="Auto" Binding="{Binding NurseName}"/>
+             </DataGrid.Columns>
+         </DataGrid>
+         <DataGrid Grid.Row="9" 
+                   Grid.ColumnSpan="3"
+                   ItemsSource="{Binding Path = TemperatureList}"
+                   SelectedItem="{Binding Path = SelectedTemperature}"
+                   IsReadOnly="True"
+                   SelectionMode="Single"
+                   SelectionUnit="FullRow"
+                   Margin="10,5"
+                   MouseDoubleClick="TemperatureGrid_OnMouseDoubleClickGrid_OnMouseDoubleClickGrid_OnMouseDoubleClick"
+                   x:Name="TemperatureGrid"
+                   FontSize="12"
+                   AutoGenerateColumns="False">
+             <DataGrid.Columns>
+                 <DataGridTextColumn Header="Id"  Width="Auto"  Binding="{Binding VitalRecordId}"/>
+                 <DataGridTextColumn Header="Temperature" Width="Auto"  Binding="{Binding Value}"/>
+                 <DataGridTextColumn Header="Date" Width="Auto"  Binding="{Binding DateTime,StringFormat=d}"/>
+                 <DataGridTextColumn Header="Time" Width="Auto"  Binding="{Binding DateTime,StringFormat=HH:mm}"/>
+                 <DataGridTextColumn Header="Nurse" Width="Auto" Binding="{Binding NurseName}"/>
+             </DataGrid.Columns>
+         </DataGrid>
+
+    </Grid>
+        </ScrollViewer>
+
+    </Grid>
+    
+</UserControl>

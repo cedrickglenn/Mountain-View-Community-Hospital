@@ -12,7 +12,7 @@ namespace Datalayer.EFClasses.AssociativeClasses
 
         public Vendor VendorLink { get; set; }
         public Item ItemLink { get; set; }
-        public string? VendorId { get; set; }
+        public string VendorId { get; set; }
         public string ItemId { get; set; }
     }
 }

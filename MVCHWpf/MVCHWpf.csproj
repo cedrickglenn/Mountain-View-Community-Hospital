@@ -1,0 +1,182 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="3.1.0-ci981" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Datalayer\Datalayer.csproj" />
+    <ProjectReference Include="..\Servicelayer\Servicelayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\DiagnosisViews\DiagnosisView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FacilityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EmployeeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FacilityViews\FacilityGridView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderViews\OrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PatientOrderViews\PatientOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PhysicianViews\EditPhysicianView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NurseViews\NurseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TechnicianViews\TechnicianView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StaffViews\StaffView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TreatmentViews\TreatmentView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VitalRecordViews\VitalRecordView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VolunteerViews\VolunteerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WardViews\AddWardView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FacilityViews\AddFacilityView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NurseViews\AddNurseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\VolunteerViews\AddVolunteerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TechnicianViews\AddTechnicianView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StaffViews\AddStaffView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PersonViews\AddPersonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PhysicianViews\AddPhysicianView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PhysicianViews\PhysicianView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WardViews\WardView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\DiagnosisViews\DiagnosisView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FacilityView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FacilityViews\FacilityGridView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderViews\OrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PatientOrderViews\PatientOrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PhysicianViews\EditPhysicianView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NurseViews\NurseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TechnicianViews\TechnicianView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StaffViews\StaffView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TreatmentViews\TreatmentView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VitalRecordViews\VitalRecordView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VolunteerViews\VolunteerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WardViews\AddWardView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FacilityViews\AddFacilityView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NurseViews\AddNurseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VolunteerViews\AddVolunteerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TechnicianViews\AddTechnicianView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StaffViews\AddStaffView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PersonViews\AddPersonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PhysicianViews\AddPhysicianView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PhysicianViews\PhysicianView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WardViews\WardView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Syncfusion.Data.WPF">
+      <HintPath>..\..\WPF\17.4.0.46\Assemblies\4.6\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing">
+      <HintPath>..\..\WPF\17.4.0.46\Assemblies\4.6\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF">
+      <HintPath>..\..\WPF\17.4.0.46\Assemblies\4.6\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Wpf">
+      <HintPath>..\..\WPF\17.4.0.46\Assemblies\4.6\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

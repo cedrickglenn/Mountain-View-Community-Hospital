@@ -24,22 +24,26 @@ namespace Datalayer.Migrations
                     b.Property<string>("DiagnosisId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ConditionId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhysicianId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("DiagnosisId");
+
+                    b.HasIndex("ConditionId");
 
                     b.HasIndex("PatientId");
 
@@ -57,6 +61,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SpecialtyId")
@@ -80,6 +85,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FacilityId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhysicianId")
@@ -103,6 +109,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Instructions")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PatientId")
@@ -132,6 +139,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PatientOrderId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
@@ -155,12 +163,14 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("OrderId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("ServiceId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("OrderServiceId");
@@ -181,9 +191,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PhysicianId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SpecialtyId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("PhysicianSpecialtyId");
@@ -204,18 +216,19 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhysicianId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ServiceId")
+                    b.Property<string>("ProcedureId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("TreatmentId");
@@ -224,7 +237,7 @@ namespace Datalayer.Migrations
 
                     b.HasIndex("PhysicianId");
 
-                    b.HasIndex("ServiceId");
+                    b.HasIndex("ProcedureId");
 
                     b.ToTable("Treatment");
                 });
@@ -238,9 +251,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("WorkUnitId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UnitEmployeeId");
@@ -258,12 +273,14 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ItemId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("VendorId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VendorSupplyId");
@@ -284,15 +301,19 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NurseId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VitalId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VitalRecordId");
@@ -311,13 +332,15 @@ namespace Datalayer.Migrations
                     b.Property<string>("VolunteerSpecialtyId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Expertise")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DateAcquired")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SpecialtyId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("VolunteerId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VolunteerSpecialtyId");
@@ -338,9 +361,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("WardId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("WardEmployeeId");
@@ -358,9 +383,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoomNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WorkUnitId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("BedId");
@@ -370,12 +397,27 @@ namespace Datalayer.Migrations
                     b.ToTable("Bed");
                 });
 
+            modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Condition", b =>
+                {
+                    b.Property<string>("ConditionId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ConditionId");
+
+                    b.ToTable("Condition");
+                });
+
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Facility", b =>
                 {
                     b.Property<string>("FacilityId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("FacilityId");
@@ -389,9 +431,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("UnitCost")
@@ -408,6 +452,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("JobClassId");
@@ -424,6 +469,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("TotalCost")
@@ -442,12 +488,14 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Discriminator")
@@ -457,27 +505,48 @@ namespace Datalayer.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PersonType")
+                    b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiddleInitial")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Zip")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PersonId");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Person");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Person");
+                });
+
+            modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Procedure", b =>
+                {
+                    b.Property<string>("ProcedureId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProcedureId");
+
+                    b.ToTable("Procedure");
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Service", b =>
@@ -486,6 +555,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ServiceId");
@@ -498,7 +568,12 @@ namespace Datalayer.Migrations
                     b.Property<string>("SpecialtyId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SpecialtyId");
@@ -512,6 +587,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VendorId");
@@ -528,6 +604,7 @@ namespace Datalayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OutpatientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VisitId");
@@ -543,11 +620,12 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VitalId");
 
-                    b.ToTable("Vitals");
+                    b.ToTable("Vital");
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Ward", b =>
@@ -556,9 +634,11 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FacilityId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WardId");
@@ -574,12 +654,15 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FacilityId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Floor")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WorkUnitId");
@@ -596,17 +679,6 @@ namespace Datalayer.Migrations
                     b.Property<DateTime>("DateHired")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EmployeeId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("EmployeeType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.HasIndex("EmployeeId")
-                        .IsUnique()
-                        .HasFilter("[EmployeeId] IS NOT NULL");
-
                     b.HasDiscriminator().HasValue("Employee");
                 });
 
@@ -620,8 +692,8 @@ namespace Datalayer.Migrations
                     b.Property<string>("ContactRelationship")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DateOfContact")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("DateOfContact")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("GroupNumber")
                         .HasColumnType("nvarchar(max)");
@@ -633,23 +705,21 @@ namespace Datalayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MedicalRecordNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatientId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PatientType")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PolicyNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SubscriberPersonId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SubscriberRelationship")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasIndex("ContactPersonId");
 
-                    b.HasIndex("PatientId")
-                        .IsUnique()
-                        .HasFilter("[PatientId] IS NOT NULL");
+                    b.HasIndex("SubscriberPersonId");
 
                     b.HasDiscriminator().HasValue("Patient");
                 });
@@ -659,17 +729,12 @@ namespace Datalayer.Migrations
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Person");
 
                     b.Property<string>("DEANumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PagerNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhysicianId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("PhysicianId")
-                        .IsUnique()
-                        .HasFilter("[PhysicianId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("Physician");
                 });
@@ -678,20 +743,18 @@ namespace Datalayer.Migrations
                 {
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Person");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("HoursWorked")
+                    b.Property<int?>("HoursWorked")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SupervisorId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("VolunteerId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WorkUnitId")
                         .HasColumnType("nvarchar(450)");
@@ -708,17 +771,12 @@ namespace Datalayer.Migrations
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee");
 
                     b.Property<string>("Degree")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("License")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NurseId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("NurseId")
-                        .IsUnique()
-                        .HasFilter("[NurseId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("Nurse");
                 });
@@ -728,16 +786,10 @@ namespace Datalayer.Migrations
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee");
 
                     b.Property<string>("JobClassId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("StaffId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasIndex("JobClassId");
-
-                    b.HasIndex("StaffId")
-                        .IsUnique()
-                        .HasFilter("[StaffId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("Staff");
                 });
@@ -746,12 +798,10 @@ namespace Datalayer.Migrations
                 {
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee");
 
-                    b.Property<string>("TechnicianId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasIndex("TechnicianId")
-                        .IsUnique()
-                        .HasFilter("[TechnicianId] IS NOT NULL");
+                    b.Property<string>("License")
+                        .IsRequired()
+                        .HasColumnName("Technician_License")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Technician");
                 });
@@ -766,20 +816,14 @@ namespace Datalayer.Migrations
                     b.Property<DateTime>("DateAdmitted")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DischargeDate")
+                    b.Property<DateTime?>("DischargeDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InpatientId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("WardId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasIndex("BedId");
-
-                    b.HasIndex("InpatientId")
-                        .IsUnique()
-                        .HasFilter("[InpatientId] IS NOT NULL");
 
                     b.HasIndex("WardId");
 
@@ -790,239 +834,309 @@ namespace Datalayer.Migrations
                 {
                     b.HasBaseType("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient");
 
-                    b.Property<string>("OutpatientId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("VisitDate")
                         .HasColumnType("datetime2");
-
-                    b.HasIndex("OutpatientId")
-                        .IsUnique()
-                        .HasFilter("[OutpatientId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("Outpatient");
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.Diagnosis", b =>
                 {
+                    b.HasOne("Datalayer.EFClasses.BaseClasses.Condition", "ConditionLink")
+                        .WithMany("Diagnoses")
+                        .HasForeignKey("ConditionId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", "PatientLink")
                         .WithMany("Diagnoses")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Physician", "PhysicianLink")
                         .WithMany("Diagnoses")
-                        .HasForeignKey("PhysicianId");
+                        .HasForeignKey("PhysicianId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.EmployeeSpecialty", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee", "EmployeeLink")
                         .WithMany("EmployeeSpecialties")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Specialty", "SpecialtyLink")
                         .WithMany("EmployeeSpecialties")
-                        .HasForeignKey("SpecialtyId");
+                        .HasForeignKey("SpecialtyId")
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.FacilityPhysician", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Facility", "FacilityLink")
                         .WithMany("FacilityPhysicians")
-                        .HasForeignKey("FacilityId");
+                        .HasForeignKey("FacilityId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Physician", "PhysicianLink")
                         .WithMany("FacilityPhysicians")
-                        .HasForeignKey("PhysicianId");
+                        .HasForeignKey("PhysicianId")
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.Order", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", "PatientLink")
                         .WithMany("Orders")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Physician", "PhysicianLink")
                         .WithMany("Orders")
-                        .HasForeignKey("PhysicianId");
+                        .HasForeignKey("PhysicianId")
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.OrderItem", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Item", "ItemLink")
                         .WithMany("OrderItems")
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PatientOrder", "PatientOrderLink")
                         .WithMany("OrderItems")
-                        .HasForeignKey("PatientOrderId");
+                        .HasForeignKey("PatientOrderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.OrderService", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.AssociativeClasses.Order", "OrderLink")
                         .WithMany("OrderServices")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Service", "ServiceLink")
                         .WithMany("OrderServices")
-                        .HasForeignKey("ServiceId");
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.PhysicianSpecialty", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Physician", "PhysicianLink")
                         .WithMany("PhysicianSpecialties")
-                        .HasForeignKey("PhysicianId");
+                        .HasForeignKey("PhysicianId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Specialty", "SpecialtyLink")
                         .WithMany("PhysicianSpecialties")
-                        .HasForeignKey("SpecialtyId");
+                        .HasForeignKey("SpecialtyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.Treatment", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", "PatientLink")
                         .WithMany("Treatments")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Physician", "PhysicianLink")
                         .WithMany("Treatments")
-                        .HasForeignKey("PhysicianId");
+                        .HasForeignKey("PhysicianId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
-                    b.HasOne("Datalayer.EFClasses.BaseClasses.Service", "ServiceLink")
+                    b.HasOne("Datalayer.EFClasses.BaseClasses.Procedure", "ProcedureLink")
                         .WithMany("Treatments")
-                        .HasForeignKey("ServiceId");
+                        .HasForeignKey("ProcedureId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.UnitEmployee", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee", "EmployeeLink")
                         .WithMany("UnitEmployees")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.WorkUnit", "WorkUnitLink")
                         .WithMany("UnitEmployees")
-                        .HasForeignKey("WorkUnitId");
+                        .HasForeignKey("WorkUnitId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.VendorSupply", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Item", "ItemLink")
                         .WithMany("VendorSupplies")
-                        .HasForeignKey("ItemId");
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Vendor", "VendorLink")
                         .WithMany("VendorSupplies")
-                        .HasForeignKey("VendorId");
+                        .HasForeignKey("VendorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.VitalRecord", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Nurse", "NurseLink")
                         .WithMany("VitalRecords")
-                        .HasForeignKey("NurseId");
+                        .HasForeignKey("NurseId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", "PatientLink")
                         .WithMany("VitalRecords")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Vital", "VitalLink")
                         .WithMany("VitalRecords")
-                        .HasForeignKey("VitalId");
+                        .HasForeignKey("VitalId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.VolunteerSpecialty", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Specialty", "SpecialtyLink")
                         .WithMany("VolunteerSpecialties")
-                        .HasForeignKey("SpecialtyId");
+                        .HasForeignKey("SpecialtyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Volunteer", "VolunteerLink")
                         .WithMany("VolunteerSpecialties")
-                        .HasForeignKey("VolunteerId");
+                        .HasForeignKey("VolunteerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.AssociativeClasses.WardEmployee", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Employee", "EmployeeLink")
                         .WithMany("WardEmployees")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Ward", "WardLink")
                         .WithMany("WardEmployees")
-                        .HasForeignKey("WardId");
+                        .HasForeignKey("WardId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Bed", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.WorkUnit", "WorkUnitLink")
                         .WithMany("Beds")
-                        .HasForeignKey("WorkUnitId");
+                        .HasForeignKey("WorkUnitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.PatientOrder", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", "PatientLink")
                         .WithMany("PatientOrders")
-                        .HasForeignKey("PatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Visit", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Outpatient", "OutpatientLink")
                         .WithMany("Visits")
-                        .HasForeignKey("OutpatientId");
+                        .HasForeignKey("OutpatientId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.Ward", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Facility", "FacilityLink")
                         .WithMany("Wards")
-                        .HasForeignKey("FacilityId");
+                        .HasForeignKey("FacilityId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.WorkUnit", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Facility", "FacilityLink")
                         .WithMany("WorkUnits")
-                        .HasForeignKey("FacilityId");
+                        .HasForeignKey("FacilityId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.PersonClasses.Patient", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Person", "ContactPersonLink")
-                        .WithMany("Patients")
+                        .WithMany("PatientContacts")
                         .HasForeignKey("ContactPersonId");
+
+                    b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Person", "SubscriberPersonLink")
+                        .WithMany("Dependents")
+                        .HasForeignKey("SubscriberPersonId");
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.PersonClasses.Volunteer", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.PersonClasses.Person", "SupervisorLink")
                         .WithMany("Volunteers")
-                        .HasForeignKey("SupervisorId");
+                        .HasForeignKey("SupervisorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.WorkUnit", "WorkUnitLink")
                         .WithMany("Volunteers")
-                        .HasForeignKey("WorkUnitId");
+                        .HasForeignKey("WorkUnitId")
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.PersonClasses.Staff", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.JobClass", "JobClassLink")
                         .WithMany("Staff")
-                        .HasForeignKey("JobClassId");
+                        .HasForeignKey("JobClassId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Datalayer.EFClasses.BaseClasses.PersonClasses.Inpatient", b =>
                 {
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Bed", "BedLink")
                         .WithMany("Inpatients")
-                        .HasForeignKey("BedId");
+                        .HasForeignKey("BedId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Datalayer.EFClasses.BaseClasses.Ward", "WardLink")
                         .WithMany("Inpatients")
-                        .HasForeignKey("WardId");
+                        .HasForeignKey("WardId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

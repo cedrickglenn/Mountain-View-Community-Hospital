@@ -8,11 +8,23 @@ namespace Datalayer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Condition",
+                columns: table => new
+                {
+                    ConditionId = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Condition", x => x.ConditionId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Facility",
                 columns: table => new
                 {
                     FacilityId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -24,8 +36,8 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     ItemId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
                     UnitCost = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -38,7 +50,7 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     JobClassId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,11 +58,23 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Procedure",
+                columns: table => new
+                {
+                    ProcedureId = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Procedure", x => x.ProcedureId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Service",
                 columns: table => new
                 {
                     ServiceId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +86,8 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     SpecialtyId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,7 +99,7 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     VendorId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,15 +107,15 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vitals",
+                name: "Vital",
                 columns: table => new
                 {
                     VitalId = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vitals", x => x.VitalId);
+                    table.PrimaryKey("PK_Vital", x => x.VitalId);
                 });
 
             migrationBuilder.CreateTable(
@@ -98,8 +123,8 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     WardId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    FacilityId = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    FacilityId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,8 +133,7 @@ namespace Datalayer.Migrations
                         name: "FK_Ward_Facility_FacilityId",
                         column: x => x.FacilityId,
                         principalTable: "Facility",
-                        principalColumn: "FacilityId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "FacilityId");
                 });
 
             migrationBuilder.CreateTable(
@@ -117,9 +141,9 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     WorkUnitId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Floor = table.Column<string>(nullable: true),
-                    FacilityId = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Floor = table.Column<string>(nullable: false),
+                    FacilityId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -128,8 +152,7 @@ namespace Datalayer.Migrations
                         name: "FK_WorkUnit_Facility_FacilityId",
                         column: x => x.FacilityId,
                         principalTable: "Facility",
-                        principalColumn: "FacilityId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "FacilityId");
                 });
 
             migrationBuilder.CreateTable(
@@ -138,8 +161,8 @@ namespace Datalayer.Migrations
                 {
                     VendorSupplyId = table.Column<string>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
-                    VendorId = table.Column<string>(nullable: true),
-                    ItemId = table.Column<string>(nullable: true)
+                    VendorId = table.Column<string>(nullable: false),
+                    ItemId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -148,14 +171,12 @@ namespace Datalayer.Migrations
                         name: "FK_VendorSupply_Item_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Item",
-                        principalColumn: "ItemId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ItemId");
                     table.ForeignKey(
                         name: "FK_VendorSupply_Vendor_VendorId",
                         column: x => x.VendorId,
                         principalTable: "Vendor",
-                        principalColumn: "VendorId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "VendorId");
                 });
 
             migrationBuilder.CreateTable(
@@ -163,8 +184,8 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     BedId = table.Column<string>(nullable: false),
-                    RoomNumber = table.Column<string>(nullable: true),
-                    WorkUnitId = table.Column<string>(nullable: true)
+                    RoomNumber = table.Column<string>(nullable: false),
+                    WorkUnitId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -174,54 +195,47 @@ namespace Datalayer.Migrations
                         column: x => x.WorkUnitId,
                         principalTable: "WorkUnit",
                         principalColumn: "WorkUnitId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Persons",
+                name: "Person",
                 columns: table => new
                 {
                     PersonId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    Zip = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    MiddleInitial = table.Column<string>(nullable: false),
+                    Address = table.Column<string>(nullable: false),
+                    City = table.Column<string>(nullable: false),
+                    State = table.Column<string>(nullable: false),
+                    Zip = table.Column<string>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     PhoneNumber = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    PersonType = table.Column<string>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
-                    EmployeeId = table.Column<string>(nullable: true),
                     DateHired = table.Column<DateTime>(nullable: true),
-                    EmployeeType = table.Column<string>(nullable: true),
-                    NurseId = table.Column<string>(nullable: true),
                     Degree = table.Column<string>(nullable: true),
                     License = table.Column<string>(nullable: true),
-                    StaffId = table.Column<string>(nullable: true),
                     JobClassId = table.Column<string>(nullable: true),
-                    TechnicianId = table.Column<string>(nullable: true),
-                    PatientId = table.Column<string>(nullable: true),
+                    Technician_License = table.Column<string>(nullable: true),
                     ContactRelationship = table.Column<string>(nullable: true),
-                    DateOfContact = table.Column<string>(nullable: true),
+                    SubscriberRelationship = table.Column<string>(nullable: true),
+                    DateOfContact = table.Column<DateTime>(nullable: true),
                     MedicalRecordNumber = table.Column<string>(nullable: true),
                     InsuranceCompanyName = table.Column<string>(nullable: true),
                     PolicyNumber = table.Column<string>(nullable: true),
                     GroupNumber = table.Column<string>(nullable: true),
                     InsurancePhoneNumber = table.Column<string>(nullable: true),
-                    PatientType = table.Column<string>(nullable: true),
                     ContactPersonId = table.Column<string>(nullable: true),
-                    InpatientId = table.Column<string>(nullable: true),
+                    SubscriberPersonId = table.Column<string>(nullable: true),
                     DateAdmitted = table.Column<DateTime>(nullable: true),
                     DischargeDate = table.Column<DateTime>(nullable: true),
                     BedId = table.Column<string>(nullable: true),
                     WardId = table.Column<string>(nullable: true),
-                    OutpatientId = table.Column<string>(nullable: true),
                     VisitDate = table.Column<DateTime>(nullable: true),
-                    PhysicianId = table.Column<string>(nullable: true),
                     PagerNumber = table.Column<string>(nullable: true),
                     DEANumber = table.Column<string>(nullable: true),
-                    VolunteerId = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: true),
                     HoursWorked = table.Column<int>(nullable: true),
@@ -230,43 +244,44 @@ namespace Datalayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Persons", x => x.PersonId);
+                    table.PrimaryKey("PK_Person", x => x.PersonId);
                     table.ForeignKey(
-                        name: "FK_Persons_Bed_BedId",
+                        name: "FK_Person_Bed_BedId",
                         column: x => x.BedId,
                         principalTable: "Bed",
-                        principalColumn: "BedId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "BedId");
                     table.ForeignKey(
-                        name: "FK_Persons_Ward_WardId",
+                        name: "FK_Person_Ward_WardId",
                         column: x => x.WardId,
                         principalTable: "Ward",
-                        principalColumn: "WardId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "WardId");
                     table.ForeignKey(
-                        name: "FK_Persons_Persons_ContactPersonId",
+                        name: "FK_Person_Person_ContactPersonId",
                         column: x => x.ContactPersonId,
-                        principalTable: "Persons",
+                        principalTable: "Person",
                         principalColumn: "PersonId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Persons_JobClass_JobClassId",
+                        name: "FK_Person_Person_SubscriberPersonId",
+                        column: x => x.SubscriberPersonId,
+                        principalTable: "Person",
+                        principalColumn: "PersonId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Person_JobClass_JobClassId",
                         column: x => x.JobClassId,
                         principalTable: "JobClass",
-                        principalColumn: "JobClassId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "JobClassId");
                     table.ForeignKey(
-                        name: "FK_Persons_Persons_SupervisorId",
+                        name: "FK_Person_Person_SupervisorId",
                         column: x => x.SupervisorId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_Persons_WorkUnit_WorkUnitId",
+                        name: "FK_Person_WorkUnit_WorkUnitId",
                         column: x => x.WorkUnitId,
                         principalTable: "WorkUnit",
-                        principalColumn: "WorkUnitId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "WorkUnitId");
                 });
 
             migrationBuilder.CreateTable(
@@ -274,27 +289,33 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     DiagnosisId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    PatientId = table.Column<string>(nullable: true),
+                    ConditionId = table.Column<string>(nullable: true),
+                    PatientId = table.Column<string>(nullable: false),
                     PhysicianId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Diagnosis", x => x.DiagnosisId);
                     table.ForeignKey(
-                        name: "FK_Diagnosis_Persons_PatientId",
+                        name: "FK_Diagnosis_Condition_ConditionId",
+                        column: x => x.ConditionId,
+                        principalTable: "Condition",
+                        principalColumn: "ConditionId",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_Diagnosis_Person_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Persons",
+                        principalTable: "Person",
                         principalColumn: "PersonId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Diagnosis_Persons_PhysicianId",
+                        name: "FK_Diagnosis_Person_PhysicianId",
                         column: x => x.PhysicianId,
-                        principalTable: "Persons",
+                        principalTable: "Person",
                         principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -303,24 +324,22 @@ namespace Datalayer.Migrations
                 {
                     EmployeeSpecialtyId = table.Column<string>(nullable: false),
                     DateAcquired = table.Column<DateTime>(nullable: false),
-                    EmployeeId = table.Column<string>(nullable: true),
+                    EmployeeId = table.Column<string>(nullable: false),
                     SpecialtyId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EmployeeSpecialty", x => x.EmployeeSpecialtyId);
                     table.ForeignKey(
-                        name: "FK_EmployeeSpecialty_Persons_EmployeeId",
+                        name: "FK_EmployeeSpecialty_Person_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
                         name: "FK_EmployeeSpecialty_Specialty_SpecialtyId",
                         column: x => x.SpecialtyId,
                         principalTable: "Specialty",
-                        principalColumn: "SpecialtyId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "SpecialtyId");
                 });
 
             migrationBuilder.CreateTable(
@@ -329,7 +348,7 @@ namespace Datalayer.Migrations
                 {
                     FacilityPhysicianId = table.Column<string>(nullable: false),
                     DateAssigned = table.Column<DateTime>(nullable: false),
-                    FacilityId = table.Column<string>(nullable: true),
+                    FacilityId = table.Column<string>(nullable: false),
                     PhysicianId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -339,14 +358,12 @@ namespace Datalayer.Migrations
                         name: "FK_FacilityPhysician_Facility_FacilityId",
                         column: x => x.FacilityId,
                         principalTable: "Facility",
-                        principalColumn: "FacilityId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "FacilityId");
                     table.ForeignKey(
-                        name: "FK_FacilityPhysician_Persons_PhysicianId",
+                        name: "FK_FacilityPhysician_Person_PhysicianId",
                         column: x => x.PhysicianId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                 });
 
             migrationBuilder.CreateTable(
@@ -355,7 +372,7 @@ namespace Datalayer.Migrations
                 {
                     OrderId = table.Column<string>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    Instructions = table.Column<string>(nullable: true),
+                    Instructions = table.Column<string>(nullable: false),
                     PhysicianId = table.Column<string>(nullable: true),
                     PatientId = table.Column<string>(nullable: true)
                 },
@@ -363,17 +380,15 @@ namespace Datalayer.Migrations
                 {
                     table.PrimaryKey("PK_Order", x => x.OrderId);
                     table.ForeignKey(
-                        name: "FK_Order_Persons_PatientId",
+                        name: "FK_Order_Person_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_Order_Persons_PhysicianId",
+                        name: "FK_Order_Person_PhysicianId",
                         column: x => x.PhysicianId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                 });
 
             migrationBuilder.CreateTable(
@@ -383,17 +398,16 @@ namespace Datalayer.Migrations
                     PatientOrderId = table.Column<string>(nullable: false),
                     TotalCost = table.Column<decimal>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    PatientId = table.Column<string>(nullable: true)
+                    PatientId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PatientOrder", x => x.PatientOrderId);
                     table.ForeignKey(
-                        name: "FK_PatientOrder_Persons_PatientId",
+                        name: "FK_PatientOrder_Person_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                 });
 
             migrationBuilder.CreateTable(
@@ -402,24 +416,22 @@ namespace Datalayer.Migrations
                 {
                     PhysicianSpecialtyId = table.Column<string>(nullable: false),
                     DateAcquired = table.Column<DateTime>(nullable: false),
-                    PhysicianId = table.Column<string>(nullable: true),
-                    SpecialtyId = table.Column<string>(nullable: true)
+                    PhysicianId = table.Column<string>(nullable: false),
+                    SpecialtyId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PhysicianSpecialty", x => x.PhysicianSpecialtyId);
                     table.ForeignKey(
-                        name: "FK_PhysicianSpecialty_Persons_PhysicianId",
+                        name: "FK_PhysicianSpecialty_Person_PhysicianId",
                         column: x => x.PhysicianId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
                         name: "FK_PhysicianSpecialty_Specialty_SpecialtyId",
                         column: x => x.SpecialtyId,
                         principalTable: "Specialty",
-                        principalColumn: "SpecialtyId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "SpecialtyId");
                 });
 
             migrationBuilder.CreateTable(
@@ -427,34 +439,30 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     TreatmentId = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    PatientId = table.Column<string>(nullable: true),
-                    PhysicianId = table.Column<string>(nullable: true),
-                    ServiceId = table.Column<string>(nullable: true)
+                    PatientId = table.Column<string>(nullable: false),
+                    PhysicianId = table.Column<string>(nullable: false),
+                    ProcedureId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Treatment", x => x.TreatmentId);
                     table.ForeignKey(
-                        name: "FK_Treatment_Persons_PatientId",
+                        name: "FK_Treatment_Person_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_Treatment_Persons_PhysicianId",
+                        name: "FK_Treatment_Person_PhysicianId",
                         column: x => x.PhysicianId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_Treatment_Service_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Service",
-                        principalColumn: "ServiceId",
-                        onDelete: ReferentialAction.Restrict);
+                        name: "FK_Treatment_Procedure_ProcedureId",
+                        column: x => x.ProcedureId,
+                        principalTable: "Procedure",
+                        principalColumn: "ProcedureId");
                 });
 
             migrationBuilder.CreateTable(
@@ -463,24 +471,22 @@ namespace Datalayer.Migrations
                 {
                     UnitEmployeeId = table.Column<string>(nullable: false),
                     DateAssigned = table.Column<DateTime>(nullable: false),
-                    WorkUnitId = table.Column<string>(nullable: true),
-                    EmployeeId = table.Column<string>(nullable: true)
+                    WorkUnitId = table.Column<string>(nullable: false),
+                    EmployeeId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UnitEmployee", x => x.UnitEmployeeId);
                     table.ForeignKey(
-                        name: "FK_UnitEmployee_Persons_EmployeeId",
+                        name: "FK_UnitEmployee_Person_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
                         name: "FK_UnitEmployee_WorkUnit_WorkUnitId",
                         column: x => x.WorkUnitId,
                         principalTable: "WorkUnit",
-                        principalColumn: "WorkUnitId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "WorkUnitId");
                 });
 
             migrationBuilder.CreateTable(
@@ -489,17 +495,16 @@ namespace Datalayer.Migrations
                 {
                     VisitId = table.Column<string>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    OutpatientId = table.Column<string>(nullable: true)
+                    OutpatientId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visit", x => x.VisitId);
                     table.ForeignKey(
-                        name: "FK_Visit_Persons_OutpatientId",
+                        name: "FK_Visit_Person_OutpatientId",
                         column: x => x.OutpatientId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                 });
 
             migrationBuilder.CreateTable(
@@ -507,33 +512,30 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     VitalRecordId = table.Column<string>(nullable: false),
-                    Value = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: false),
                     DateTime = table.Column<DateTime>(nullable: false),
-                    PatientId = table.Column<string>(nullable: true),
-                    VitalId = table.Column<string>(nullable: true),
-                    NurseId = table.Column<string>(nullable: true)
+                    PatientId = table.Column<string>(nullable: false),
+                    VitalId = table.Column<string>(nullable: false),
+                    NurseId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_VitalRecord", x => x.VitalRecordId);
                     table.ForeignKey(
-                        name: "FK_VitalRecord_Persons_NurseId",
+                        name: "FK_VitalRecord_Person_NurseId",
                         column: x => x.NurseId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_VitalRecord_Persons_PatientId",
+                        name: "FK_VitalRecord_Person_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
-                        name: "FK_VitalRecord_Vitals_VitalId",
+                        name: "FK_VitalRecord_Vital_VitalId",
                         column: x => x.VitalId,
-                        principalTable: "Vitals",
-                        principalColumn: "VitalId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Vital",
+                        principalColumn: "VitalId");
                 });
 
             migrationBuilder.CreateTable(
@@ -541,9 +543,9 @@ namespace Datalayer.Migrations
                 columns: table => new
                 {
                     VolunteerSpecialtyId = table.Column<string>(nullable: false),
-                    Expertise = table.Column<string>(nullable: true),
-                    SpecialtyId = table.Column<string>(nullable: true),
-                    VolunteerId = table.Column<string>(nullable: true)
+                    DateAcquired = table.Column<DateTime>(nullable: true),
+                    SpecialtyId = table.Column<string>(nullable: false),
+                    VolunteerId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -552,14 +554,12 @@ namespace Datalayer.Migrations
                         name: "FK_VolunteerSpecialty_Specialty_SpecialtyId",
                         column: x => x.SpecialtyId,
                         principalTable: "Specialty",
-                        principalColumn: "SpecialtyId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "SpecialtyId");
                     table.ForeignKey(
-                        name: "FK_VolunteerSpecialty_Persons_VolunteerId",
+                        name: "FK_VolunteerSpecialty_Person_VolunteerId",
                         column: x => x.VolunteerId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                 });
 
             migrationBuilder.CreateTable(
@@ -568,24 +568,22 @@ namespace Datalayer.Migrations
                 {
                     WardEmployeeId = table.Column<string>(nullable: false),
                     DateAssigned = table.Column<DateTime>(nullable: false),
-                    WardId = table.Column<string>(nullable: true),
-                    EmployeeId = table.Column<string>(nullable: true)
+                    WardId = table.Column<string>(nullable: false),
+                    EmployeeId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_WardEmployee", x => x.WardEmployeeId);
                     table.ForeignKey(
-                        name: "FK_WardEmployee_Persons_EmployeeId",
+                        name: "FK_WardEmployee_Person_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Persons",
-                        principalColumn: "PersonId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalTable: "Person",
+                        principalColumn: "PersonId");
                     table.ForeignKey(
                         name: "FK_WardEmployee_Ward_WardId",
                         column: x => x.WardId,
                         principalTable: "Ward",
-                        principalColumn: "WardId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "WardId");
                 });
 
             migrationBuilder.CreateTable(
@@ -594,8 +592,8 @@ namespace Datalayer.Migrations
                 {
                     OrderServiceId = table.Column<string>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
-                    OrderId = table.Column<string>(nullable: true),
-                    ServiceId = table.Column<string>(nullable: true)
+                    OrderId = table.Column<string>(nullable: false),
+                    ServiceId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -604,14 +602,12 @@ namespace Datalayer.Migrations
                         name: "FK_OrderService_Order_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Order",
-                        principalColumn: "OrderId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "OrderId");
                     table.ForeignKey(
                         name: "FK_OrderService_Service_ServiceId",
                         column: x => x.ServiceId,
                         principalTable: "Service",
-                        principalColumn: "ServiceId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ServiceId");
                 });
 
             migrationBuilder.CreateTable(
@@ -622,7 +618,7 @@ namespace Datalayer.Migrations
                     DateTime = table.Column<DateTime>(nullable: false),
                     Subtotal = table.Column<decimal>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
-                    PatientOrderId = table.Column<string>(nullable: true),
+                    PatientOrderId = table.Column<string>(nullable: false),
                     ItemId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -632,20 +628,23 @@ namespace Datalayer.Migrations
                         name: "FK_OrderItem_Item_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Item",
-                        principalColumn: "ItemId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ItemId");
                     table.ForeignKey(
                         name: "FK_OrderItem_PatientOrder_PatientOrderId",
                         column: x => x.PatientOrderId,
                         principalTable: "PatientOrder",
-                        principalColumn: "PatientOrderId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "PatientOrderId");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bed_WorkUnitId",
                 table: "Bed",
                 column: "WorkUnitId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Diagnosis_ConditionId",
+                table: "Diagnosis",
+                column: "ConditionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Diagnosis_PatientId",
@@ -713,89 +712,38 @@ namespace Datalayer.Migrations
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_EmployeeId",
-                table: "Persons",
-                column: "EmployeeId",
-                unique: true,
-                filter: "[EmployeeId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_BedId",
-                table: "Persons",
+                name: "IX_Person_BedId",
+                table: "Person",
                 column: "BedId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_InpatientId",
-                table: "Persons",
-                column: "InpatientId",
-                unique: true,
-                filter: "[InpatientId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_WardId",
-                table: "Persons",
+                name: "IX_Person_WardId",
+                table: "Person",
                 column: "WardId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_NurseId",
-                table: "Persons",
-                column: "NurseId",
-                unique: true,
-                filter: "[NurseId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_OutpatientId",
-                table: "Persons",
-                column: "OutpatientId",
-                unique: true,
-                filter: "[OutpatientId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_ContactPersonId",
-                table: "Persons",
+                name: "IX_Person_ContactPersonId",
+                table: "Person",
                 column: "ContactPersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_PatientId",
-                table: "Persons",
-                column: "PatientId",
-                unique: true,
-                filter: "[PatientId] IS NOT NULL");
+                name: "IX_Person_SubscriberPersonId",
+                table: "Person",
+                column: "SubscriberPersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_PhysicianId",
-                table: "Persons",
-                column: "PhysicianId",
-                unique: true,
-                filter: "[PhysicianId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_JobClassId",
-                table: "Persons",
+                name: "IX_Person_JobClassId",
+                table: "Person",
                 column: "JobClassId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_StaffId",
-                table: "Persons",
-                column: "StaffId",
-                unique: true,
-                filter: "[StaffId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_TechnicianId",
-                table: "Persons",
-                column: "TechnicianId",
-                unique: true,
-                filter: "[TechnicianId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_SupervisorId",
-                table: "Persons",
+                name: "IX_Person_SupervisorId",
+                table: "Person",
                 column: "SupervisorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Persons_WorkUnitId",
-                table: "Persons",
+                name: "IX_Person_WorkUnitId",
+                table: "Person",
                 column: "WorkUnitId");
 
             migrationBuilder.CreateIndex(
@@ -819,9 +767,9 @@ namespace Datalayer.Migrations
                 column: "PhysicianId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Treatment_ServiceId",
+                name: "IX_Treatment_ProcedureId",
                 table: "Treatment",
-                column: "ServiceId");
+                column: "ProcedureId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UnitEmployee_EmployeeId",
@@ -936,6 +884,9 @@ namespace Datalayer.Migrations
                 name: "WardEmployee");
 
             migrationBuilder.DropTable(
+                name: "Condition");
+
+            migrationBuilder.DropTable(
                 name: "PatientOrder");
 
             migrationBuilder.DropTable(
@@ -945,19 +896,22 @@ namespace Datalayer.Migrations
                 name: "Service");
 
             migrationBuilder.DropTable(
+                name: "Procedure");
+
+            migrationBuilder.DropTable(
                 name: "Item");
 
             migrationBuilder.DropTable(
                 name: "Vendor");
 
             migrationBuilder.DropTable(
-                name: "Vitals");
+                name: "Vital");
 
             migrationBuilder.DropTable(
                 name: "Specialty");
 
             migrationBuilder.DropTable(
-                name: "Persons");
+                name: "Person");
 
             migrationBuilder.DropTable(
                 name: "Bed");

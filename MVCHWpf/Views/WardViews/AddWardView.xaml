@@ -1,0 +1,66 @@
+﻿<Window x:Class="MVCHWpf.Views.WardViews.AddWardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVCHWpf.Views.PatientViews"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Add Patient" Background="#09425A" WindowStartupLocation="CenterScreen" Height="1000" Width="600">
+    <Grid Margin="10" Background="WhiteSmoke">
+        <ScrollViewer 
+            VerticalScrollBarVisibility="Visible"
+            CanContentScroll="True"
+        >
+            <Grid 
+              Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Text="Ward Information"
+                           FontStyle="Normal"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5,5,5,10"/>
+                <!-- #region Labels -->
+                <!-- Name Labels -->
+                <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Name"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 0 0 0"
+                       FontSize="14"/>
+                <!-- Name Fields -->
+                <TextBox Grid.Row="2"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         Text="{Binding Name}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

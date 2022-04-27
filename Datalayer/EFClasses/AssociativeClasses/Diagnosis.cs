@@ -9,13 +9,14 @@ namespace Datalayer.EFClasses.AssociativeClasses
     public class Diagnosis
     {
         public string DiagnosisId { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
 
         public Patient PatientLink { get; set; }
         public Physician PhysicianLink { get; set; }
+        public Condition ConditionLink { get; set; }
+        public string ConditionId { get; set; }
         public string PatientId { get; set; }
-        public string? PhysicianId { get; set; }
+        public string PhysicianId { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace Datalayer.EFClasses.AssociativeClasses
         public Order OrderLink { get; set; }
         public Service ServiceLink { get; set; }
         public string OrderId { get; set; }
-        public string? ServiceId { get; set; }
+        public string ServiceId { get; set; }
 
     }
 }

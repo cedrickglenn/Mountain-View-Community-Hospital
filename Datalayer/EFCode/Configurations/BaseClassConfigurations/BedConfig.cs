@@ -19,6 +19,8 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.HasKey(c => c.BedId);
             builder.Property(c => c.BedId)
                 .HasValueGenerator((typeof(BedIdGenerator)));
+         
+
             builder.HasOne(c => c.WorkUnitLink)
                 .WithMany(c => c.Beds)
                 .HasForeignKey(c => c.WorkUnitId);

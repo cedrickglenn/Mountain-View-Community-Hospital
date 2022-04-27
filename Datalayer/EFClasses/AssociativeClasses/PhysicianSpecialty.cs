@@ -14,6 +14,6 @@ namespace Datalayer.EFClasses.AssociativeClasses
         public Physician PhysicianLink { get; set; }
         public Specialty SpecialtyLink { get; set; }
         public string PhysicianId { get; set; }
-        public string? SpecialtyId { get; set; }
+        public string SpecialtyId { get; set; }
     }
 }

@@ -2,9 +2,7 @@
 {
     public class Staff : Employee
     {
-        public string StaffId { get; set; }
-
         public JobClass JobClassLink { get; set; }
-        public string? JobClassId { get; set; }
+        public string JobClassId { get; set; }
     }
 }

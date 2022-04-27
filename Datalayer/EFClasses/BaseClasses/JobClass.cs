@@ -8,6 +8,6 @@ namespace Datalayer.EFClasses.BaseClasses
         public string JobClassId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Staff> Staff { get; set; }
+        public ICollection<Staff>? Staff { get; set; }
     }
 }

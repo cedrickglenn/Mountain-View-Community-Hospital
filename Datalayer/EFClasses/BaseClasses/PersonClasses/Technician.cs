@@ -2,6 +2,6 @@
 {
     public class Technician : Employee
     {
-        public string TechnicianId { get; set; }
+        public string License { get; set; }
     }
 }

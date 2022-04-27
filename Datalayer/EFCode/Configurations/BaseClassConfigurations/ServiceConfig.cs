@@ -19,6 +19,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.HasKey(c => c.ServiceId);
             builder.Property(c => c.ServiceId)
                 .HasValueGenerator(typeof(ServiceIdGenerator));
+     
 
         }
 

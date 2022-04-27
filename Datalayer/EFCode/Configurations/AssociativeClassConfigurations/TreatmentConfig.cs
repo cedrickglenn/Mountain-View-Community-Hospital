@@ -19,16 +19,18 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
             builder.HasKey(c => c.TreatmentId);
             builder.Property(c => c.TreatmentId)
                 .HasValueGenerator(typeof(TreatmentIdGenerator));
+           
 
             builder.HasOne(c => c.PhysicianLink)
                 .WithMany(c => c.Treatments)
-                .HasForeignKey(c => c.PhysicianId);
+                .HasForeignKey(c => c.PhysicianId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.PatientLink)
                 .WithMany(c => c.Treatments)
-                .HasForeignKey(c => c.PatientId);
-            builder.HasOne(c => c.ServiceLink)
+                .HasForeignKey(c => c.PatientId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(c => c.ProcedureLink)
                 .WithMany(c => c.Treatments)
-                .HasForeignKey(c => c.ServiceId);
+                .HasForeignKey(c => c.ProcedureId).OnDelete(DeleteBehavior.NoAction);
+
         }
         
         

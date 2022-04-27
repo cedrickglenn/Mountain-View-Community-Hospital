@@ -14,29 +14,6 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations.PersonClassCon
         public void Configure(EntityTypeBuilder<Technician> builder)
         {
             //builder.ToTable("Technician");
-            
-            builder.Property(c => c.TechnicianId)
-                .HasValueGenerator(typeof(TechnicianIdGenerator));
-            builder.HasIndex(c => c.TechnicianId)
-                .IsUnique();
-        }
-        private class TechnicianIdGenerator : ValueGenerator
-        {
-            public override bool GeneratesTemporaryValues => false;
-
-            protected override object NextValue(EntityEntry entry)
-            {
-                using var context = new MVCHContext();
-
-                var stringId = new StringBuilder();
-
-                var idNumSequence = (context.Technicians.Count() + 1).ToString();
-
-                stringId.Append("TCN-");
-                stringId.Append($"{idNumSequence.PadLeft(6, '0')}");
-
-                return stringId.ToString();
-            }
         }
     }
 }

@@ -13,35 +13,12 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations.PersonClassCon
     {
         public void Configure(EntityTypeBuilder<Volunteer> builder)
         {
-            //builder.ToTable("Volunteer");
-            builder.Property(c => c.VolunteerId)
-                .HasValueGenerator(typeof(VolunteerIdGenerator));
-
             builder.HasOne(c => c.SupervisorLink)
                 .WithMany(c => c.Volunteers)
-                .HasForeignKey(c => c.SupervisorId);
+                .HasForeignKey(c => c.SupervisorId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.WorkUnitLink)
                 .WithMany(c => c.Volunteers)
-                .HasForeignKey(c => c.WorkUnitId);
-        }
-
-        private class VolunteerIdGenerator : ValueGenerator
-        {
-            public override bool GeneratesTemporaryValues => false;
-
-            protected override object NextValue(EntityEntry entry)
-            {
-                using var context = new MVCHContext();
-
-                var stringId = new StringBuilder();
-
-                var idNumSequence = (context.Volunteers.Count() + 1).ToString();
-
-                stringId.Append("VOL-");
-                stringId.Append($"{idNumSequence.PadLeft(6, '0')}");
-
-                return stringId.ToString();
-            }
+                .HasForeignKey(c => c.WorkUnitId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

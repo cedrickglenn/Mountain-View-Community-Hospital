@@ -8,7 +8,6 @@ namespace Datalayer.EFClasses.BaseClasses
         public string ServiceId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Treatment> Treatments { get; set; }
-        public ICollection<OrderService> OrderServices { get; set; }
+        public ICollection<OrderService>? OrderServices { get; set; }
     }
 }

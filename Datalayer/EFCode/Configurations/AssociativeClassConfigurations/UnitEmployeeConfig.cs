@@ -20,13 +20,14 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
             builder.HasKey(c => c.UnitEmployeeId);
             builder.Property(c => c.UnitEmployeeId)
                 .HasValueGenerator(typeof(UnitEmployeeIdGenerator));
+         
 
             builder.HasOne(c => c.EmployeeLink)
                 .WithMany(c => c.UnitEmployees)
-                .HasForeignKey(c => c.EmployeeId);
+                .HasForeignKey(c => c.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.WorkUnitLink)
                 .WithMany(c => c.UnitEmployees)
-                .HasForeignKey(c => c.WorkUnitId);
+                .HasForeignKey(c => c.WorkUnitId).OnDelete(DeleteBehavior.NoAction);
         }
 
         

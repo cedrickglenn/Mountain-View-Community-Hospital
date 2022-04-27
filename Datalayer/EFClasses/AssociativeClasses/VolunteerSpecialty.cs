@@ -9,11 +9,11 @@ namespace Datalayer.EFClasses.AssociativeClasses
     public class VolunteerSpecialty
     {
         public string VolunteerSpecialtyId { get; set; }
-        public string Expertise { get; set; }
+        public DateTime? DateAcquired { get; set; }
 
         public Specialty SpecialtyLink { get; set; }
         public Volunteer VolunteerLink { get; set; }
-        public string? SpecialtyId { get; set; }
+        public string SpecialtyId { get; set; }
         public string VolunteerId { get; set; }
 
     }

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using Datalayer.EFClasses;
 using Datalayer.EFClasses.BaseClasses.PersonClasses;
@@ -13,10 +15,12 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations.PersonClassCon
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            //builder.ToTable("Person");
+            builder.ToTable("Person");
             builder.HasKey(c => c.PersonId);
             builder.Property(c => c.PersonId)
                 .HasValueGenerator(typeof(PersonIdGenerator));
+            builder.HasDiscriminator(c=>c.Discriminator);
+            
         }
         private class PersonIdGenerator : ValueGenerator
         {

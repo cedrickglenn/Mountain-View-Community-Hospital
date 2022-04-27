@@ -30,6 +30,8 @@ namespace Datalayer.EFClasses
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Technician> Technicians { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<Condition> Conditions { get; set; }
+        public DbSet<Procedure> Procedures { get; set; }
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Vital> Vitals { get; set; }
         public DbSet<Volunteer> Volunteers { get; set; }
@@ -80,7 +82,10 @@ namespace Datalayer.EFClasses
             modelBuilder.ApplyConfiguration(new StaffConfig());
             modelBuilder.ApplyConfiguration(new TechnicianConfig());
             modelBuilder.ApplyConfiguration(new VendorConfig());
+            modelBuilder.ApplyConfiguration(new ProcedureConfig());
+            modelBuilder.ApplyConfiguration(new ConditionConfig());
             modelBuilder.ApplyConfiguration(new VisitConfig());
+            modelBuilder.ApplyConfiguration(new VitalConfig());
             modelBuilder.ApplyConfiguration(new VolunteerConfig());
             modelBuilder.ApplyConfiguration(new WardConfig());
             modelBuilder.ApplyConfiguration(new WorkUnitConfig());

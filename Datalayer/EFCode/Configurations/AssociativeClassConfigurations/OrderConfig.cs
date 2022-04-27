@@ -20,12 +20,16 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
             builder.Property(c => c.OrderId)
                 .HasValueGenerator(typeof(OrderIdGenerator));
 
+
+
             builder.HasOne(c => c.PhysicianLink)
                 .WithMany(c => c.Orders)
-                .HasForeignKey(c => c.PhysicianId);
+                .HasForeignKey(c => c.PhysicianId)
+                .OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.PatientLink)
                 .WithMany(c => c.Orders)
-                .HasForeignKey(c => c.PatientId);
+                .HasForeignKey(c => c.PatientId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
         private class OrderIdGenerator : ValueGenerator

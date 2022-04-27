@@ -22,10 +22,18 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
 
             builder.HasOne(c => c.PatientLink)
                 .WithMany(c => c.Diagnoses)
-                .HasForeignKey(c => c.PatientId);
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
             builder.HasOne(c => c.PhysicianLink)
                 .WithMany(c => c.Diagnoses)
-                .HasForeignKey(c => c.PhysicianId);
+                .HasForeignKey(c => c.PhysicianId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .IsRequired(false);
+            builder.HasOne(c => c.ConditionLink)
+                .WithMany(c => c.Diagnoses)
+                .HasForeignKey(c => c.ConditionId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
         private class DiagnosisIdGenerator : ValueGenerator

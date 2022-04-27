@@ -9,15 +9,15 @@ namespace Datalayer.EFClasses.AssociativeClasses
     public class Treatment
     {
         public string TreatmentId { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
         public DateTime DateTime { get; set; }
 
         public Patient PatientLink { get; set; }
         public Physician PhysicianLink { get; set; }
-        public Service ServiceLink { get; set; }
-        public string? PatientId { get; set; }
-        public string? PhysicianId { get; set; }
-        public string? ServiceId { get; set; }
+        public Procedure ProcedureLink { get; set; }
+        public string PatientId { get; set; }
+        public string PhysicianId { get; set; }
+        public string ProcedureId { get; set; }
+        
     }
 }

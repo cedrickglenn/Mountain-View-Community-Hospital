@@ -14,6 +14,6 @@ namespace Datalayer.EFClasses.AssociativeClasses
         public Ward WardLink { get; set; }
         public Employee EmployeeLink { get; set; }
         public string WardId { get; set; }
-        public string? EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
     }
 }

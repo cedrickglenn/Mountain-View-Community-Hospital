@@ -20,9 +20,10 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.Property(c => c.WardId)
                 .HasValueGenerator(typeof(WardIdGenerator));
 
+
             builder.HasOne(c => c.FacilityLink)
                 .WithMany(c => c.Wards)
-                .HasForeignKey(c => c.FacilityId);
+                .HasForeignKey(c => c.FacilityId).OnDelete(DeleteBehavior.NoAction);
         }
 
         private class WardIdGenerator : ValueGenerator

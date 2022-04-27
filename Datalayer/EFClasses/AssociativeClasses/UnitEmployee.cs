@@ -14,6 +14,6 @@ namespace Datalayer.EFClasses.AssociativeClasses
         public WorkUnit WorkUnitLink { get; set; }
         public Employee EmployeeLink { get; set; }
         public string WorkUnitId { get; set; }
-        public string? EmployeeId { get; set; }
+        public string EmployeeId { get; set; }
     }
 }

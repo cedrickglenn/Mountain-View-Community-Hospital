@@ -11,8 +11,8 @@ namespace Datalayer.EFClasses.BaseClasses
         public string Floor { get; set; }
 
         public ICollection<UnitEmployee> UnitEmployees { get; set; }
-        public ICollection<Bed> Beds { get; set; }
-        public ICollection<Volunteer> Volunteers { get; set; }
+        public ICollection<Bed>? Beds { get; set; }
+        public ICollection<Volunteer>? Volunteers { get; set; }
         public Facility FacilityLink { get; set; }
         public string FacilityId { get; set; }
     }

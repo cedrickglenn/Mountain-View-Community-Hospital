@@ -22,12 +22,14 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
             builder.Property(c => c.FacilityPhysicianId)
                 .HasValueGenerator(typeof(FacilityPhysicianIdGenerator));
 
+
+
             builder.HasOne(c => c.PhysicianLink)
                 .WithMany(c => c.FacilityPhysicians)
-                .HasForeignKey(c => c.PhysicianId);
+                .HasForeignKey(c => c.PhysicianId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.FacilityLink)
                 .WithMany(c => c.FacilityPhysicians)
-                .HasForeignKey(c => c.FacilityId);
+                .HasForeignKey(c => c.FacilityId).OnDelete(DeleteBehavior.NoAction);
         }
         private class FacilityPhysicianIdGenerator : ValueGenerator
         {

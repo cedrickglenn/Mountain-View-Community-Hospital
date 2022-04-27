@@ -14,29 +14,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations.PersonClassCon
         public void Configure(EntityTypeBuilder<Outpatient> builder)
         {
             //builder.ToTable("Outpatient");
-            
-            builder.Property(c => c.OutpatientId)
-                .HasValueGenerator(typeof(OutpatientIdGenerator));
-            builder.HasIndex(c => c.OutpatientId)
-                .IsUnique();
-        }
-        private class OutpatientIdGenerator : ValueGenerator
-        {
-            public override bool GeneratesTemporaryValues => false;
-
-            protected override object NextValue(EntityEntry entry)
-            {
-                using var context = new MVCHContext();
-
-                var stringId = new StringBuilder();
-
-                var idNumSequence = (context.Outpatients.Count() + 1).ToString();
-
-                stringId.Append("OTP-");
-                stringId.Append($"{idNumSequence.PadLeft(6, '0')}");
-
-                return stringId.ToString();
-            }
         }
     }
-}
+    }
+

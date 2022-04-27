@@ -1,0 +1,1054 @@
+﻿<Window x:Class="MVCHWpf.Views.PatientViews.AddPatientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVCHWpf.Views.PatientViews"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Add Patient" Background="#09425A" WindowStartupLocation="CenterScreen" Height="640" Width="600">
+    <Grid Margin="10" Background="WhiteSmoke">
+        <ScrollViewer 
+            VerticalScrollBarVisibility="Visible"
+            CanContentScroll="True"
+        >
+            <Grid 
+              Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Text="Personal Information"
+                           FontStyle="Normal"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5,5,5,10"/>
+                <TextBlock Grid.Row="19"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Text="Insurance Information"
+                           FontStyle="Normal"
+                           FontWeight="Bold"
+                           FontSize="18"
+                           Margin="5,5,5,10"/>
+                <Grid Grid.Row="31"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3"
+                      Margin="10,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.6*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               Text="Medical Information"
+                               FontStyle="Normal"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="-5,0,-5,5"/>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Administering Nurse"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="5 10 -10 -5"
+                               FontSize="14"/>
+                    <ComboBox x:Name="NurseComboBox"
+                        Grid.Row="2"
+                        materialDesign:HintAssist.Hint="Search "
+                        IsEditable="True"
+                        IsTextSearchEnabled="False"
+                        DisplayMemberPath="FullNameAndDegree"
+                        PreviewTextInput="NurseComboBox_OnTextInput"
+                        PreviewKeyUp="NurseComboBox_OnPreviewKeyUp"
+                        Text="{Binding SearchNurseText,UpdateSourceTrigger=Explicit,Delay=0100}"
+                        Margin="0 10 0 0"
+                        materialDesign:HintAssist.HintOpacity=".26"
+                        Background="WhiteSmoke"
+                        ItemsSource="{Binding Path = Nurses}"
+                        SelectedItem="{Binding Path = SelectedNurse,UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+                <Grid Grid.Row="40"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3"
+                      Margin="10,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.6*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               Text="Diagnosis"
+                               FontStyle="Normal"
+                               FontWeight="Bold"
+                               FontSize="18"
+                               Margin="-5,0,-5,5"/>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Diagnosing Physician"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="5 10 -10 -5"
+                               FontSize="14"/>
+                    <ComboBox x:Name="PhysicianComboBox"
+                        Grid.Row="2"
+                        Margin="0 10 0 0"
+                        ItemsSource="{Binding Path = Physicians}"
+                        SelectedItem="{Binding Path = SelectedPhysician,UpdateSourceTrigger=PropertyChanged}"
+                        materialDesign:HintAssist.Hint="Search "
+                        IsEditable="True"
+                        IsTextSearchEnabled="False"
+                        DisplayMemberPath="FullName"
+                        PreviewTextInput="PhysicianComboBox_OnTextInput"
+                        PreviewKeyUp="PhysicianComboBox_OnPreviewKeyUp"
+                        Text="{Binding SearchPhysicianText,UpdateSourceTrigger=Explicit,Delay=0100}"
+                        materialDesign:HintAssist.HintOpacity=".26">
+                    </ComboBox>
+                </Grid>
+
+                <!-- #region Labels -->
+                <!-- Name Labels -->
+                <TextBlock Grid.Row="1"
+                       Grid.Column="0"
+                       Text="First Name"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 0 0 0"
+                       FontSize="14"/>
+                <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Last Name"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 0 0 0"
+                       FontSize="14"/>
+                <TextBlock Grid.Row="1"
+                       Grid.Column="2"
+                       Text="Middle Initial"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 0 0 0"
+                       FontSize="14"/>
+
+                <!-- Date of Birth Label-->
+                <TextBlock Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Date of Birth"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 15 0 0"
+                       FontSize="14"/>
+
+                <!-- Home Address Label -->
+                <TextBlock Grid.Row="5"
+                           Grid.Column="0"
+                           Text="Home Address"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- City State Zip Labels -->
+                <TextBlock Grid.Row="7"
+                           Grid.Column="0"
+                           Text="City"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="7"
+                           Grid.Column="1"
+                           Text="State"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="7"
+                           Grid.Column="2"
+                           Text="Zip"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- Phone Number/ Email Labels -->
+                <TextBlock Grid.Row="9"
+                           Grid.Column="0"
+                           Text="Phone Number"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="11"
+                           Grid.Column="0"
+                           Text="Email Address"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- Emergency Contact Labels -->
+                <TextBlock Grid.Row="13"
+                           Grid.Column="0"
+                           Text="Emergency Contact"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="17"
+                           Grid.Column="0"
+                           Text="Relationship" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- Insurance Info Labels -->
+                <TextBlock Grid.Row="25"
+                           Grid.Column="0"
+                           Text="Company Name"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="27"
+                           Grid.Column="0"
+                           Text="Policy Number"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="27"
+                           Grid.Column="1"
+                           Text="Group Number"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="29"
+                           Grid.Column="0"
+                           Text="Company Phone Number"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- Medical Field Labels -->
+                <TextBlock Grid.Row="32"
+                           Grid.Column="0"
+                           Text="Height"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="32"
+                           Grid.Column="1"
+                           Text="Weight"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="34"
+                           Grid.Column="0"
+                           Text="Blood Pressure"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="34"
+                           Grid.Column="1"
+                           Text="Pulse"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="36"
+                           Grid.Column="0"
+                           Text="Temperature"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+                <TextBlock Grid.Row="38"
+                           Grid.Column="0"
+                           Text="Status"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="15 15 0 0"
+                           FontSize="14"/>
+
+                <!-- Diagnosis Labels -->
+                <TextBlock Grid.Row="41"
+                       Grid.Column="0"
+                       Text="Condition"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 15 0 0"
+                       FontSize="14"/>
+                <TextBlock Grid.Row="43"
+                       Grid.Column="0"
+                       Text="Description"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 15 0 0"
+                       FontSize="14"/>
+                <TextBlock Grid.Row="46"
+                       Grid.Column="0"
+                       Text="Date"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 15 0 0"
+                       FontSize="14"/>
+                <TextBlock Grid.Row="46"
+                       Grid.Column="1"
+                       Text="Time"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="15 15 0 0"
+                       FontSize="14"/>
+                <!-- #endregion -->
+
+
+                <!-- Name Fields -->
+                <TextBox Grid.Row="2"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.FirstName}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="2"
+                     Grid.Column="1"
+                     Text="{Binding PatientModel.LastName}"
+                     Padding="2"
+                     FontSize="14"
+                     BorderBrush="LightGray"
+                     BorderThickness="1"
+                     Margin="10,5"/>
+                <TextBox Grid.Row="2"
+                     Grid.Column="2"
+                     Text="{Binding PatientModel.MiddleInitial}"
+                     Padding="2"
+                     FontSize="14"
+                     BorderBrush="LightGray"
+                     BorderThickness="1"
+                     Margin="10,5"/>
+
+                <!-- Date of Birth Picker -->
+                <DatePicker Grid.Row="4"
+                            Grid.Column="0"
+                            Padding="2"
+                            FontSize="14"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            Margin="10,5"
+                            IsTodayHighlighted="True"
+
+                            SelectedDate="{Binding PatientModel.BirthDate}"/>
+
+                <!-- Address Fields -->
+                <TextBox Grid.Row="6"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="3"
+                         Text="{Binding PatientModel.Address}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="8"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.City}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="8"
+                         Grid.Column="1"
+                         Text="{Binding PatientModel.State}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="8"
+                         Grid.Column="2"
+                         Text="{Binding PatientModel.Zip}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+
+                <!-- Phone/Email/MRN/ContactDate Fields -->
+                <TextBox Grid.Row="10"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.PhoneNumber}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <Grid Grid.Row="12"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="0"
+                             Grid.Column="0"
+                             Text="{Binding PatientModel.Email}"
+                             Padding="2"
+                             FontSize="14"
+                             BorderBrush="LightGray"
+                             BorderThickness="1"
+                             Margin="10,5"/>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Medical Record Number"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="15 15 0 0"
+                               FontSize="14"/>
+                    <TextBlock Grid.Row="3"
+                               Grid.Column="0"
+                               Text="Contact Date"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="15 15 0 0"
+                               FontSize="14"/>
+                    <TextBox Grid.Row="2"
+                             Grid.Column="0"
+                             Text="{Binding PatientModel.MedicalRecordNumber}"
+                             Padding="2"
+                             FontSize="14"
+                             BorderBrush="LightGray"
+                             BorderThickness="1"
+                             Margin="10,5"/>
+                    <DatePicker Grid.Row="4"
+                             Grid.Column="0"
+                             SelectedDate="{Binding PatientModel.DateOfContact}"
+                             Padding="2"
+                             FontSize="14"
+                             BorderBrush="LightGray"
+                             BorderThickness="1"
+                             Margin="10,5"/>
+                    
+                </Grid>
+                
+
+
+                <!-- Fields for Emergency Contact-->
+
+                <ComboBox x:Name="ContactComboBox"
+                          Grid.Row="14"
+                          Grid.Column="0"
+                          Margin="10,5"
+                          Background="WhiteSmoke"
+                          IsEditable="True"
+                          IsTextSearchEnabled="False"
+                          Text="{Binding Path = SearchContactText, UpdateSourceTrigger=Explicit, Delay=0100}"
+                          ItemsSource="{Binding Path = ContactPersons}"
+                          SelectedItem="{Binding Path= SelectedContactPerson,UpdateSourceTrigger=PropertyChanged}"
+                          materialDesign:HintAssist.Hint="Search "
+                          DisplayMemberPath="FullName"
+                          PreviewTextInput="ContactComboBox_OnTextInput"
+                          PreviewKeyUp="ContactComboBox_OnPreviewKeyUp"
+                          materialDesign:HintAssist.HintOpacity=".26"/>
+                <TextBox Grid.Row="18"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.ContactRelationship}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    Grid.Row="14"
+                    Grid.Column="1"
+                    Background="#009ABB"
+                    Foreground="WhiteSmoke"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,5"
+                    x:Name ="AddPersonButton"
+                    Click="AddPersonButton_Onclick">
+                    <StackPanel Orientation="Horizontal">
+                        <ContentControl 
+                            Content="{materialDesign:PackIcon PersonAdd}"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                        />
+                        <TextBlock Text=" Add" 
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"/>
+                    </StackPanel>
+
+                </Button>
+
+                <!-- Insurance Fields -->
+                <CheckBox
+                    Grid.Row="20"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    FontSize="14"
+                    FontWeight="Medium"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    x:Name="InsuranceCheckBox"
+                    Checked="InsuranceCheckBox_OnChecked"
+                    Unchecked="InsuranceCheckBox_OnUnchecked"
+                    Margin="10 10 0 0"
+                    Style="{StaticResource MaterialDesignCheckBox}">
+                    Is the insurance subscriber not the patient?
+                </CheckBox>
+                <Grid x:Name="InsuranceGrid"
+                      Grid.Row="21"
+                      Grid.Column="0"
+                      Grid.RowSpan="3"
+                      Grid.ColumnSpan="3"
+                      Visibility="Visible">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.6*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Insurance Subscriber"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="15 15 0 0"
+                               FontSize="14"/>
+                    <Button
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Background="#009ABB"
+                        Foreground="WhiteSmoke"
+                        VerticalAlignment="Center"
+                        Margin="10,5"
+                        HorizontalAlignment="Left"
+                        x:Name ="AddSubscriberButton"
+                        Click="AddPersonButton_Onclick">
+                        <StackPanel Orientation="Horizontal">
+                            <ContentControl 
+                                Content="{materialDesign:PackIcon PersonAdd}"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                HorizontalAlignment="Left"
+                                HorizontalContentAlignment="Left"
+                            />
+                            <TextBlock Text=" Add" 
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Button>
+                    <ComboBox x:Name="SubscriberBox"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Background="WhiteSmoke"
+                        Margin="10,5"
+                        ItemsSource="{Binding Path = SubscriberPersons}"
+                        SelectedItem="{Binding Path = SelectedSubscriber,UpdateSourceTrigger=PropertyChanged}"
+                        materialDesign:HintAssist.Hint="Search "
+                        IsEditable="True"
+                        IsTextSearchEnabled="False"
+                        Text="{Binding Path = SearchSubscriberText, UpdateSourceTrigger=Explicit, Delay=0100}"
+                        DisplayMemberPath="FullName"
+                        PreviewTextInput="SubscriberBox_OnTextInput"
+                        PreviewKeyUp="SubscriberBox_OnPreviewKeyUp"
+                        materialDesign:HintAssist.HintOpacity=".26">
+                    </ComboBox>
+                        <TextBlock Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Relationship to Patient"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="15 15 0 0"
+                               FontSize="14"/>
+                    <TextBox Grid.Row="3"
+                             Grid.Column="0"
+                             Text="{Binding PatientModel.SubscriberRelationship}"
+                             Padding="2"
+                             FontSize="14"
+                             BorderBrush="LightGray"
+                             BorderThickness="1"
+                             Margin="10,5"/>
+                </Grid>
+                <TextBox Grid.Row="26"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.InsuranceCompanyName }"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="28"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.PolicyNumber}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="28"
+                         Grid.Column="1"
+                         Text="{Binding PatientModel.GroupNumber}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <TextBox Grid.Row="30"
+                         Grid.Column="0"
+                         Text="{Binding PatientModel.InsurancePhoneNumber}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+
+
+                <!-- Height/Weight Fields -->
+                <Grid Grid.Row="33"
+                      Grid.Column="0"
+                      Margin="10,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.9*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                             Text="{Binding Height}"
+                             Padding="2"
+                             FontSize="14"
+                             BorderBrush="LightGray"
+                             TextAlignment="Right"
+                             BorderThickness="1"
+                             Margin="0 0 5 0"
+                             Grid.Column="0"/>
+                    <TextBlock Text="cm"
+                               FontStyle="Normal"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="33"
+                      Grid.Column="1"
+                      Margin="10,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.9*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Text="{Binding Weight}"
+                        Padding="2"
+                        FontSize="14"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        TextAlignment="Right"
+                        Margin="0 0 5 0"
+                        Grid.Column="0"/>
+                    <TextBlock Text="kg"
+                               FontStyle="Normal"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               Grid.Column="1"/>
+                </Grid>
+
+                <!-- Blood Pressure/Pulse/Temperature Fields-->
+                <Grid Grid.Row="35"
+                      Grid.Column="0"
+                      Margin="10,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Text="{Binding BloodPressure}"
+                        Padding="2"
+                        FontSize="14"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        TextAlignment="Right"
+                        Margin="0 0 5 0"
+                        Grid.Column="0"/>
+                    <TextBlock Text="mmHg"
+                               FontStyle="Normal"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="35"
+                      Grid.Column="1"
+                      Margin="10,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Text="{Binding Pulse}"
+                        Padding="2"
+                        FontSize="14"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        HorizontalAlignment="Stretch"
+                        TextAlignment="Right"
+                        Grid.Column="0"/>
+                    <TextBlock Text="bpm"
+                               FontStyle="Normal"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="37"
+                      Grid.Column="0"
+                      Margin="10,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox 
+                        Text="{Binding Temperature}"
+                        Padding="2"
+                        FontSize="14"
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        TextAlignment="Right"
+                        Grid.Column="0"/>
+                    <TextBlock Text="C°"
+                               FontStyle="Normal"
+                               FontSize="14"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="39"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Grid.Column="0"
+                               Grid.Row="0"
+                               >
+                        <RadioButton x:Name="InpatientSelectButton"
+                                     DockPanel.Dock="Left"
+                                     Margin="10,5"
+                                     Click="InpatientSelectButton_Click"/>
+                        <TextBlock Text="Inpatient"
+                                   DockPanel.Dock="Right"
+                                   FontSize="14"
+
+                                   FontWeight="Medium"
+                                   TextAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"/>
+                    </DockPanel>
+                    <DockPanel Grid.Column="1"
+                               Grid.Row="0">
+                        <RadioButton x:Name="OutpatientSelectButton"
+                                     DockPanel.Dock="Left"
+                                     Margin="10,5"
+                                     Click="OutpatientSelectButton_Click"/>
+                        <TextBlock Text="Outpatient"
+                                   DockPanel.Dock="Right"
+                                   FontSize="14"
+                                   Margin="10,5"
+                                   FontWeight="Medium"
+                                   TextAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"/>
+                    </DockPanel>
+                    <Grid x:Name="InpatientGrid"
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Visibility="Collapsed">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.6*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Admission Date"
+                                   Margin="15 15 0 0"
+                                   FontStyle="Normal"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="0"/>
+                        <TextBlock Text="Discharge Date (optional)"
+                                   Margin="15 15 0 0"
+                                   FontStyle="Normal"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="1"/>
+                        <TextBlock Text="Assign Ward (optional)"
+                                   Margin="15 15 0 0"
+                                   FontStyle="Normal"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="0"
+                                   Grid.Row="2"/>
+                        <TextBlock Text="Assign Bed (optional)"
+                                   Margin="15 15 0 0"
+                                   FontStyle="Normal"
+                                   FontSize="14"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Grid.Column="0"
+                                   Grid.Row="4"/>
+                        <DatePicker 
+                            SelectedDate="{Binding InpatientModel.DateAdmitted}"
+                            Padding="2"
+                            FontSize="14"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            Grid.Column="0"
+                            Margin="10,5"
+                            Grid.Row="1"/>
+                        <DatePicker 
+                            SelectedDate="{Binding InpatientModel.DischargeDate}"
+                            Padding="2"
+                            FontSize="14"
+                            Margin="10,5"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            Grid.Column="1"
+                            Grid.Row="1"/>
+                        <ComboBox x:Name="WardBox"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="1"
+                            Margin="10,5"
+                            ItemsSource="{Binding Path = Wards}"
+                            SelectedItem="{Binding Path = SelectedWard,UpdateSourceTrigger=PropertyChanged}"
+                            materialDesign:HintAssist.Hint="Search "
+                            IsEditable="True"
+                            IsTextSearchEnabled="False"
+                            Text="{Binding Path = SearchWardText, UpdateSourceTrigger=Explicit, Delay=0100}"
+                            DisplayMemberPath="NameAndFacility"
+                            PreviewTextInput="WardBox_OnTextInput"
+                            PreviewKeyUp="WardBox_OnPreviewKeyUp"
+                            materialDesign:HintAssist.HintOpacity=".26">
+                        </ComboBox>
+                        <ComboBox x:Name="BedBox"
+                            Grid.Row="5"
+                            Margin="10,5"
+                            ItemsSource="{Binding Path= Beds}"
+                            SelectedItem="{Binding Path = SelectedBed,UpdateSourceTrigger=PropertyChanged}"
+                            materialDesign:HintAssist.Hint="Search "
+                            IsEditable="True"
+                            IsTextSearchEnabled="False"
+                            Text="{Binding Path = SearchBedText, UpdateSourceTrigger=Explicit, Delay=0100}"
+                            DisplayMemberPath="RoomNumberAndWorkUnit"
+                            PreviewTextInput="BedBox_OnTextInput"
+                            PreviewKeyUp="BedBox_OnPreviewKeyUp"
+                            materialDesign:HintAssist.HintOpacity=".26">
+                        </ComboBox>
+
+                    </Grid>
+
+                </Grid>
+                
+
+                <!-- Diagnosis Fields-->
+                <ComboBox x:Name="ConditionBox"
+                          Grid.Row="42"
+                          Grid.Column="0"
+                          Margin="10,5"
+                          Background="WhiteSmoke"
+                          ItemsSource="{Binding Path= Conditions}"
+                          SelectedItem="{Binding Path= SelectedCondition,UpdateSourceTrigger=PropertyChanged}"
+                          materialDesign:HintAssist.Hint="Search "
+                          IsEditable="True"
+                          IsTextSearchEnabled="False"
+                          Text="{Binding Path = SearchConditionText, UpdateSourceTrigger=Explicit, Delay=0100}"
+                          DisplayMemberPath="Name"
+                          PreviewTextInput="ConditionBox_OnTextInput"
+                          PreviewKeyUp="ConditionBox_OnPreviewKeyUp"
+                          materialDesign:HintAssist.HintOpacity=".26"/>
+                <TextBox Grid.Row="44"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         Grid.RowSpan="2"
+                         Text="{Binding Description}"
+                         Padding="2"
+                         FontSize="14"
+                         BorderBrush="LightGray"
+                         BorderThickness="1"
+                         Margin="10,5"/>
+                <DatePicker Grid.Row="48"
+                            Grid.Column="0"
+                            Padding="2"
+                            FontSize="14"
+                            BorderBrush="LightGray"
+                            BorderThickness="1"
+                            Margin="10,5"
+                            SelectedDate="{Binding DiagnosisDateTime}"/>
+                <materialDesign:TimePicker Grid.Row="48"
+                                           Grid.Column="1"
+                                           Padding="2"
+                                           FontSize="14"
+                                           BorderBrush="LightGray"
+                                           BorderThickness="1"
+                                           Margin="10,5"
+                                           SelectedTime="{Binding DiagnosisDateTime}"/>
+                
+                <!-- Save/Cancel Buttons-->
+                <Grid Grid.Row="49"
+                      Grid.ColumnSpan="3"
+                      Grid.RowSpan="4"
+                      Margin="10,50,10,50">
+                    <DockPanel>
+                        <Button x:Name="SaveButton"
+                                Click="SaveButton_Click"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                Background="#009ABB"
+                                Foreground="WhiteSmoke"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                Margin="10 10 30 10"
+                                Content="Save"
+                                Padding="8"
+                                Width="100"
+                                DockPanel.Dock="Right" />
+                        <Button x:Name="CancelButton"
+                                Click="CancelButton_Click"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                Background="WhiteSmoke"
+                                Foreground="#009ABB"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                Margin="10 10 30 10"
+                                Padding="8"
+                                Width="100"
+                                BorderBrush="SlateGray"
+                                BorderThickness="0.5"
+                                Content="Cancel"
+                                DockPanel.Dock="Right" />
+                    </DockPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

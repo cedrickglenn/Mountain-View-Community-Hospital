@@ -19,13 +19,14 @@ namespace Datalayer.EFCode.Configurations.AssociativeClassConfigurations
             builder.HasKey(c => c.VendorSupplyId);
             builder.Property(c => c.VendorSupplyId)
                 .HasValueGenerator(typeof(VendorSupplyIdGenerator));
+            
 
             builder.HasOne(c => c.VendorLink)
                 .WithMany(c => c.VendorSupplies)
-                .HasForeignKey(c => c.VendorId);
+                .HasForeignKey(c => c.VendorId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.ItemLink)
                 .WithMany(c => c.VendorSupplies)
-                .HasForeignKey(c => c.ItemId);
+                .HasForeignKey(c => c.ItemId).OnDelete(DeleteBehavior.NoAction);
         }
         
         private class VendorSupplyIdGenerator : ValueGenerator

@@ -19,6 +19,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.HasKey(c => c.JobClassId);
             builder.Property(c => c.JobClassId)
                 .HasValueGenerator(typeof(JobClassIdGenerator));
+        
 
         }
         private class JobClassIdGenerator : ValueGenerator

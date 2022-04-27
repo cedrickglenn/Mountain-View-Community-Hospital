@@ -1,0 +1,20 @@
+﻿<Window x:Class="MVCHWpf.Views.PatientViews.EditPatientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVCHWpf.Views.PatientViews"
+        mc:Ignorable="d"
+        Title="EditPatientView" WindowStartupLocation="CenterScreen" Height="640" Width="600" Background="#09425A">
+    <Grid Margin="10">
+        <TabControl Background="WhiteSmoke">
+            <TabItem Header="Patient Information" FontSize="14" FontWeight="Medium" x:Name="InfoTab">
+            </TabItem>   
+            <TabItem Header="Vital Record" FontSize="14" FontWeight="Medium" x:Name="VitalRecordTab"></TabItem>   
+            <TabItem Header="Diagnoses" FontSize="14" FontWeight="Medium" x:Name="DiagnosisTab"></TabItem>   
+            <TabItem Header="Treatments" FontSize="14" FontWeight="Medium" x:Name="TreatmentTab"></TabItem>   
+            <TabItem Header="Prescriptions" FontSize="14" FontWeight="Medium" x:Name="OrderTab"></TabItem>   
+            <TabItem Header="Items" FontSize="14" FontWeight="Medium" x:Name="PatientOrderTab" ></TabItem>   
+        </TabControl>
+    </Grid>
+</Window>

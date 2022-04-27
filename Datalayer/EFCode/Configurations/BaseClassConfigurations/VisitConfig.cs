@@ -22,7 +22,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
 
             builder.HasOne(c => c.OutpatientLink)
                 .WithMany(c => c.Visits)
-                .HasForeignKey(c => c.OutpatientId);
+                .HasForeignKey(c => c.OutpatientId).OnDelete(DeleteBehavior.NoAction);
         }
 
         private class VisitIdGenerator : ValueGenerator

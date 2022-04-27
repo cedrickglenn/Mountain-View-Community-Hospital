@@ -19,10 +19,12 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
             builder.HasKey(c => c.PatientOrderId);
             builder.Property(c => c.PatientOrderId)
                 .HasValueGenerator(typeof(PatientOrderIdGenerator));
+            builder.Property(c => c.TotalCost);
 
-            builder.HasOne(c => c.PatientLink)
+
+           builder.HasOne(c => c.PatientLink)
                 .WithMany(c => c.PatientOrders)
-                .HasForeignKey(c => c.PatientId);
+                .HasForeignKey(c => c.PatientId).OnDelete(DeleteBehavior.NoAction);
         }
         private class PatientOrderIdGenerator : ValueGenerator
         {

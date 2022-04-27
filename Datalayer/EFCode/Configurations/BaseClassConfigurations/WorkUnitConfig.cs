@@ -22,7 +22,7 @@ namespace Datalayer.EFCode.Configurations.BaseClassConfigurations
 
             builder.HasOne(c => c.FacilityLink)
                 .WithMany(c => c.WorkUnits)
-                .HasForeignKey(c => c.FacilityId);
+                .HasForeignKey(c => c.FacilityId).OnDelete(DeleteBehavior.NoAction);
         }
 
         private class WorkUnitIdGenerator : ValueGenerator
